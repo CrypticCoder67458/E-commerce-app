@@ -1,13 +1,11 @@
 import React  from "react"
-import{Link} from "react-router-dom"
 import {ShoppingCart} from "phosphor-react"
+import "../styles/styles.css"
 
-export default function Navbar(){
+export  function Navbar(){
     return(
         <div className="navbar">
-        <p>Navbar</p>
-        <Link to="/">Shop</Link>
-        <Link to="/cart">Cart</Link>
+        <h2>Shop</h2>
         <ShoppingCart size={32}/>
 
     </div>
