@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#root{
+    background-color: rgb(230, 224, 215);
+}
+
+/* -----Home.jsx------*/
+.products{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* -----CartTab.jsx------*/
+.cart-tab{
+    color: white;
+    font-size: 30px;
+    background-color: gray;
+    min-height: max-content;
+    width: 15.625em; /* 250px/16 */
+}
+
