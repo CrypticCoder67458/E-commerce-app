@@ -1,7 +1,8 @@
 import React from 'react'
+import { decreaseQuantity,increaseQuantity } from '../utils/quantityFunctions';
 
 export function TabItem ({setCartProducts,product,cartProducts,setTotalQuantity}){
-    let quantity=product.quantity;
+    
     const[localQuantity,setLocalQuantity]=React.useState(product.quantity)
     React.useEffect(()=>setLocalQuantity(product.quantity),[product.quantity])
     function handleMinus(){
@@ -10,16 +11,21 @@ export function TabItem ({setCartProducts,product,cartProducts,setTotalQuantity}
         else{
             setTotalQuantity((prevQuantity)=>prevQuantity-1)
             setLocalQuantity((prevQuantity)=>prevQuantity-1)
+            let newCart=decreaseQuantity(cartProducts,product)
+            setCartProducts(newCart)
         }
     }
     function handlePlus(){
         setTotalQuantity((prevQuantity)=>prevQuantity+1)
         setLocalQuantity((prevQuantity)=>prevQuantity+1)
+        let newCart=increaseQuantity(cartProducts,product)
+        setCartProducts(newCart)
     }
     function removeFromCart(product){
         setCartProducts((Products)=>Products.filter     ((productToKeep)=>productToKeep!=product))
         setTotalQuantity((prevQuantity)=>prevQuantity-localQuantity)
         setLocalQuantity(0)
+        
 
     }
   return (

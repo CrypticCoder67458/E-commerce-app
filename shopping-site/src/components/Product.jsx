@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/components.css'
-import { addQuantity } from '../utils/quantityFunctions';
+import { increaseQuantity } from '../utils/quantityFunctions';
 
 export function Product({product,setCartProducts,cartProducts, setTotalQuantity}) {
   const [isHoverOn,setIsHoverOn]=React.useState(false);
@@ -9,7 +9,7 @@ export function Product({product,setCartProducts,cartProducts, setTotalQuantity}
 let productExists = cartProducts.find(item => item.id === product.id);
 
 if (productExists) {
-  let newCartProducts =addQuantity(cartProducts,product)
+  let newCartProducts =increaseQuantity(cartProducts,product)
   setCartProducts(newCartProducts);
 } else {
   setCartProducts((prevCartArr) => [...prevCartArr, product]);

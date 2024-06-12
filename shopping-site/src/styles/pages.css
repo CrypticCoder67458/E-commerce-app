@@ -9,6 +9,7 @@
 
 /* -----Home.jsx------*/
 .products{
+    position: relative;
     display: flex;
     justify-content: flex-end;
 }
@@ -19,6 +20,6 @@
     font-size: 25px;
     background-color: gray;
     min-height: max-content;
-    width: 15.625em; /* 250px/16 */
+    min-width: 13em; /* 250px/16 */
 }
 

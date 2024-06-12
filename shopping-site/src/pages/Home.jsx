@@ -22,8 +22,9 @@ export const Home = () => {
         totalQuantity={totalQuantity} 
         setIsCartClicked={setIsCartClicked}
       />
-      
-      <div className='products'>
+      {
+        isCartClicked?
+        <div className='products'>
         <Products 
           setTotalQuantity={setTotalQuantity}
           setCartProducts={setCartProducts}
@@ -36,7 +37,15 @@ export const Home = () => {
           cartProducts={cartProducts}
         />
         
-      </div>
+      </div>:
+      <Products 
+      setTotalQuantity={setTotalQuantity}
+      setCartProducts={setCartProducts}
+      cartProducts={cartProducts}
+    />
+
+      }
+      
       
     </div>
   )
