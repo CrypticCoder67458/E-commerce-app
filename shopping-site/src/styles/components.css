@@ -78,5 +78,41 @@
     left: 0;
     right: 0;
 }
+/* -----TabItem.jsx------*/
+.cart-item{
+    border: solid black;
+    margin:10px;
+    background-color: rgb(157, 155, 155);
+    height: 170px;
+    width:20em;
+    font-size: 15px;
+}
+.cart-item h5{
+    font-size: 20px;
+    text-indent: 10px;
+}
+.cart-item img{
+    width: 100px;
+    height: 120px;
+}
+.cart-item--quantity{
+    display: flex;
+}
+.cart-item--details{
+    margin-top: 25px;
+    margin-left: 5px;
+    
+}
+.cart-item--flex{
+    display: flex;
+    position: relative;
 
+}
+.cart-item--btn{
+    gap: 5px;
+    display: flex;
+    position: absolute;
+    right: 10px;
+    bottom:0;
 
+}

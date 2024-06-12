@@ -16,7 +16,7 @@
 /* -----CartTab.jsx------*/
 .cart-tab{
     color: white;
-    font-size: 30px;
+    font-size: 25px;
     background-color: gray;
     min-height: max-content;
     width: 15.625em; /* 250px/16 */

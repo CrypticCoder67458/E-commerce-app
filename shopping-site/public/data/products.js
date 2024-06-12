@@ -11,30 +11,35 @@ export const products = [
     productName: "IPhone",
     price: 999.0,
     productImage: product1,
+    quantity:1
   },
   {
     id: 2,
     productName: "Macbook Pro 2022 (M1)",
     price: 1999.0,
     productImage: product2,
+    quantity:1
   },
   {
     id: 3,
     productName: "Cannon M50 Camera",
     price: 699.0,
     productImage: product3,
+    quantity:1
   },
   {
     id: 4,
     productName: "WLS Van Gogh Denim Jacket",
     price: 228.0,
     productImage: product4,
+    quantity:1
   },
   {
     id: 5,
     productName: "LED Light Strips",
     price: 19.99,
     productImage: product5,
+    quantity:1
   },
 
 ];
