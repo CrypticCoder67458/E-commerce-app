@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/components.css'
+import { addQuantity } from '../utils/quantityFunctions';
 
 export function Product({product,setCartProducts,cartProducts, setTotalQuantity}) {
   const [isHoverOn,setIsHoverOn]=React.useState(false);
@@ -8,13 +9,7 @@ export function Product({product,setCartProducts,cartProducts, setTotalQuantity}
 let productExists = cartProducts.find(item => item.id === product.id);
 
 if (productExists) {
-  let newCartProducts = cartProducts.map(cartProduct => {
-    if (cartProduct.id === product.id) {
-      return { ...cartProduct, quantity: cartProduct.quantity + 1 };
-    } else {
-      return cartProduct;
-    }
-  });
+  let newCartProducts =addQuantity(cartProducts,product)
   setCartProducts(newCartProducts);
 } else {
   setCartProducts((prevCartArr) => [...prevCartArr, product]);
