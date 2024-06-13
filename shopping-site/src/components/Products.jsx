@@ -8,6 +8,7 @@ import { Product } from './Product'
 export const Products =({setTotalQuantity,setCartProducts,cartProducts}) => {
   return (
     <div className='products-section'>
+      <h2>Our products</h2>
       <div className='product-container'>
         {
             products.map((product)=> <Product 

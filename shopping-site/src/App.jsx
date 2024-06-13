@@ -3,7 +3,7 @@ import {Home} from './pages/Home'
 import './styles/pages.css'
 
 function App() {
-
+  
   return (
     <div className='app'>
       <Home/>

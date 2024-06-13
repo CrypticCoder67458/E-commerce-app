@@ -25,7 +25,7 @@ export function TabItem ({setCartProducts,product,cartProducts,setTotalQuantity}
     }
 
   return (
-        <div className='cart-item'>
+        <div className='cart-item white-box-effect'>
             <img src={product.productImage}/>
             <h5>{product.productName}</h5>
             <p>${Math.round((product.price * localQuantity) * 100) / 100}</p>

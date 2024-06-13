@@ -22,7 +22,7 @@ export const Home = () => {
         totalQuantity={totalQuantity} 
         setIsCartClicked={setIsCartClicked}
       />
-      <Slider/>
+      
     {/*<div className='deco1'>
         <div>
           <h2>Tech Essentials: Unleash </h2>
@@ -38,11 +38,15 @@ export const Home = () => {
       {
         isCartClicked?
         <div className='products'>
-        <Products 
-          setTotalQuantity={setTotalQuantity}
-          setCartProducts={setCartProducts}
-          cartProducts={cartProducts}
-        />
+          <div>
+          <Slider/>
+          <Products 
+            setTotalQuantity={setTotalQuantity}
+            setCartProducts={setCartProducts}
+            cartProducts={cartProducts}
+          />
+          </div>
+        
         
         <CartTab
           setTotalQuantity={setTotalQuantity}
@@ -51,11 +55,15 @@ export const Home = () => {
         />
         
       </div>:
-      <Products 
-      setTotalQuantity={setTotalQuantity}
-      setCartProducts={setCartProducts}
-      cartProducts={cartProducts}
-    />
+      <>
+        <Slider/>
+        <Products 
+        setTotalQuantity={setTotalQuantity}
+        setCartProducts={setCartProducts}
+        cartProducts={cartProducts}
+        />  
+    </>
+      
 
       }
       
