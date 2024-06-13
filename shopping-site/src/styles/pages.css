@@ -8,18 +8,48 @@
 }
 
 /* -----Home.jsx------*/
+.deco1,.deco2{
+    display:flex;
+    margin-top: 80px;
+    margin-left: 60px;
+    margin-right: 40px;
+    margin-bottom: 0px;
+    justify-content: space-between;
+    align-items: space-between;
+    
+}
+.deco1 h2,.deco2 h2{
+    font-size: 55px;
+    max-width: 800px;
+}
+.deco1 img{
+    width: 350px;
+    height: 350px;
+}
+.deco2{
+    align-items: center;
+    margin-top: 0px;
+}
+.deco2 img{
+    width: 450px;
+    height: 400px;
+}
+
 .products{
     position: relative;
     display: flex;
     justify-content: flex-end;
 }
 
+
 /* -----CartTab.jsx------*/
 .cart-tab{
     color: white;
     font-size: 25px;
-    background-color: gray;
+    background-color: rgb(55,65,81)
+
+    ;
     min-height: max-content;
-    min-width: 13em; /* 250px/16 */
+    min-width: 15em; /* 250px/16 */
 }
 

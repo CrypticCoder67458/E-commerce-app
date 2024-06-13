@@ -20,7 +20,7 @@ if (productExists) {
   return (
     <div 
     key={product.id}
-    className= {isHoverOn?'product shadow-effect':'product'}
+    className={`product white-box-effect ${isHoverOn?'shadow-effect':''}`}
      onMouseEnter={()=>setIsHoverOn(true)}
       onMouseLeave={()=>setIsHoverOn(false)} 
       >
