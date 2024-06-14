@@ -7,7 +7,7 @@ export  function Navbar({totalQuantity,setIsCartClicked}){
         <div className="navbar">
         <img src={logo} className="logo"/>
         <div className="shopping-cart">
-            <h2>Shop</h2>
+            <h2>Cart</h2>
             <div className="shopping-cart--logo"
             onClick={()=>setIsCartClicked((prevValue)=>!prevValue)}>
                 <span >{totalQuantity}</span>

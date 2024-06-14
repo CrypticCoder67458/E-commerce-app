@@ -24,146 +24,170 @@ import product20 from "./assets/products/p20.png";
 
 
 
-export const products = [
-  {
-    id: 1,
-    productName: "iPhone 11",
-    price: 999.0,
-    productImage: product1,
-    quantity: 1
-  },
-  {
-    id: 2,
-    productName: "MacBook Air",
-    price: 1200.0,
-    productImage: product2,
-    quantity: 1
-  },
-  {
-    id: 3,
-    productName: "iPhone 11 Pro",
-    price: 1099.0,
-    productImage: product3,
-    quantity: 1
-  },
-  {
-    id: 4,
-    productName: "MacBook Pro",
-    price: 2399.0,
-    productImage: product4,
-    quantity: 1
-  },
-  {
-    id: 5,
-    productName: "iPad Air",
-    price: 599.0,
-    productImage: product5,
-    quantity: 1
-  },
-  {
-    id: 6,
-    productName: "iPhone 13",
-    price: 1099.0,
-    productImage: product6,
-    quantity: 1
-  },
-  {
-    id: 7,
-    productName: "MacBook Pro 2021",
-    price: 1999.0,
-    productImage: product7,
-    quantity: 1
-  },
-  {
-    id: 8,
-    productName: "MacBook Air 2022",
-    price: 999.0,
-    productImage: product8,
-    quantity: 1
-  },
-  {
-    id: 9,
-    productName: "iPad Pro",
-    price: 799.0,
-    productImage:product9,
-    quantity: 1
-  },
-  {
-    id: 10,
-    productName: "Apple Watch Series 7",
-    price: 399.0,
-    productImage: product10,
-    quantity: 1
-  },{
-    id: 11,
-    productName: "Samsung Galaxy S22 Ultra",
-    price: 1199.0,
-    productImage: product11,
-    quantity: 1
-  },
-  {
-    id: 12,
-    productName: "Lenovo ThinkPad X1 Carbon",
-    price: 1429.0,
-    productImage: product12,
-    quantity: 1
-  },
-  {
-    id: 13,
-    productName: "Apple iPad Pro 12.9-inch",
-    price: 1099.0,
-    productImage: product13,
-    quantity: 1
-  },
-  {
-    id: 14,
-    productName: "Apple Watch Series 8",
-    price: 399.0,
-    productImage: product14,
-    quantity: 1
-  },
-  {
-    id: 15,
-    productName: "Sony PlayStation 5",
-    price: 499.0,
-    productImage: product15,
-    quantity: 1
-  },
-  {
-    id: 16,
-    productName: "Microsoft Surface Laptop 4",
-    price: 999.0,
-    productImage: product16,
-    quantity: 1
-  },
-  {
-    id: 17,
-    productName: "Google Pixel Tablet",
-    price: 549.0,
-    productImage: product17,
-    quantity: 1
-  },
-  {
-    id: 18,
-    productName: "Samsung Galaxy Watch 5",
-    price: 279.0,
-    productImage: product18,
-    quantity: 1
-  },
-  {
-    id: 19,
-    productName: "Dell XPS 13",
-    price: 999.0,
-    productImage: product19,
-    quantity: 1
-  },
-  {
-    id: 20,
-    productName: "Bose QuietComfort 45 Headphones",
-    price: 329.0,
-    productImage: product20,
-    quantity: 1
-  },
+
+  export const products = [
+    {
+      id: 1,
+      productName: "iPhone 11",
+      price: 999.0,
+      productImage: product1,
+      quantity: 1,
+      category: "phone"
+    },
+    {
+      id: 2,
+      productName: "MacBook Air",
+      price: 1200.0,
+      productImage: product2,
+      quantity: 1,
+      category: "laptop"
+    },
+    {
+      id: 3,
+      productName: "iPhone 11 Pro",
+      price: 1099.0,
+      productImage: product3,
+      quantity: 1,
+      category: "phone"
+    },
+    {
+      id: 4,
+      productName: "MacBook Pro",
+      price: 2399.0,
+      productImage: product4,
+      quantity: 1,
+      category: "laptop"
+    },
+    {
+      id: 5,
+      productName: "iPad Air",
+      price: 599.0,
+      productImage: product5,
+      quantity: 1,
+      category: "tablet"
+    },
+    {
+      id: 6,
+      productName: "iPhone 13",
+      price: 1099.0,
+      productImage: product6,
+      quantity: 1,
+      category: "phone"
+    },
+    {
+      id: 7,
+      productName: "MacBook Pro 2021",
+      price: 1999.0,
+      productImage: product7,
+      quantity: 1,
+      category: "laptop"
+    },
+    {
+      id: 8,
+      productName: "MacBook Air 2022",
+      price: 999.0,
+      productImage: product8,
+      quantity: 1,
+      category: "laptop"
+    },
+    {
+      id: 9,
+      productName: "iPad Pro",
+      price: 799.0,
+      productImage: product9,
+      quantity: 1,
+      category: "tablet"
+    },
+    {
+      id: 10,
+      productName: "Apple Watch Series 7",
+      price: 399.0,
+      productImage: product10,
+      quantity: 1,
+      category: "watch"
+    },
+    {
+      id: 11,
+      productName: "Samsung Galaxy S22 Ultra",
+      price: 1199.0,
+      productImage: product11,
+      quantity: 1,
+      category: "phone"
+    },
+    {
+      id: 12,
+      productName: "Lenovo ThinkPad X1 Carbon",
+      price: 1429.0,
+      productImage: product12,
+      quantity: 1,
+      category: "laptop"
+    },
+    {
+      id: 13,
+      productName: "Apple iPad Pro 12.9-inch",
+      price: 1099.0,
+      productImage: product13,
+      quantity: 1,
+      category: "tablet"
+    },
+    {
+      id: 14,
+      productName: "Apple Watch Series 8",
+      price: 399.0,
+      productImage: product14,
+      quantity: 1,
+      category: "watch"
+    },
+    {
+      id: 15,
+      productName: "Sony PlayStation 5",
+      price: 499.0,
+      productImage: product15,
+      quantity: 1,
+      category: "game console"
+    },
+    {
+      id: 16,
+      productName: "Microsoft Surface Laptop 4",
+      price: 999.0,
+      productImage: product16,
+      quantity: 1,
+      category: "laptop"
+    },
+    {
+      id: 17,
+      productName: "Google Pixel Tablet",
+      price: 549.0,
+      productImage: product17,
+      quantity: 1,
+      category: "tablet"
+    },
+    {
+      id: 18,
+      productName: "Samsung Galaxy Watch 5",
+      price: 279.0,
+      productImage: product18,
+      quantity: 1,
+      category: "watch"
+    },
+    {
+      id: 19,
+      productName: "Dell XPS 13",
+      price: 999.0,
+      productImage: product19,
+      quantity: 1,
+      category: "laptop"
+    },
+    {
+      id: 20,
+      productName: "Bose QuietComfort 45 Headphones",
+      price: 329.0,
+      productImage: product20,
+      quantity: 1,
+      category: "earphone"
+    }
+  ];
+  
   /*{
     id: 21,
     productName: "Honor Magic 6 Pro",
@@ -237,4 +261,4 @@ export const products = [
 
 */
 
-];
+;

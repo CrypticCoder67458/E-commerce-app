@@ -10,6 +10,7 @@ export const Home = () => {
 
   const [totalQuantity,setTotalQuantity]=React.useState(0);
   const[isCartClicked,setIsCartClicked]=React.useState(false);
+  
   const[cartProducts,setCartProducts]=React.useState([]);
   console.log(cartProducts)
   
