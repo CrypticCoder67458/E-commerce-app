@@ -1,0 +1,152 @@
+.container {
+    display: flex;
+    overflow-y: hidden;
+ 
+}
+
+/* -----Slider.jsx------*/
+.slider {
+    flex: 1; 
+    margin: 10vh 8vw;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+.slider-content {
+    position: relative;
+}
+
+.slider img {    
+    width: 33vw;
+    height: 28vh;
+    min-height: 20px;
+    min-width: 500px;
+}
+
+.slider-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer; 
+}
+
+.slider-icon.left {
+    
+    left: -5px; 
+}
+
+.slider-icon.right {  
+    right: -5px; 
+}
+
+/* -----CategoriesBar------*/
+.categories-bar {
+    height: 100vh;
+    padding-top: 20px;
+    width: 15%;
+    min-width: 180px;
+    background: linear-gradient(to right, rgb(240,118,104), rgb(245,84,67));
+    overflow: hidden; 
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.categories-bar h3 {
+    margin-top: 80px;
+    text-indent: 15px;
+    font-size: 22px;
+    margin-bottom: 20px;
+    
+}
+
+.categories-bar p {
+    text-indent: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.categories-bar p:hover {
+    background-color: rgb(245,120,113); /* A less vibrant shade */
+    transform: scale(1.05);
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+}
+/* -----Products------*/
+
+.products-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-row-gap: 30px;
+}
+/* -----Product------*/
+.product{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 290px;
+    height: 450px;
+    margin: 0 20px ;
+}
+.product h3{
+    text-align: center;
+    margin: 0 5px
+}
+.product img{
+    width: 290px;
+    height: 270px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.product button{
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: rgb(112, 128, 144);
+    color: white;
+    width: 100%;
+    bottom: 0;
+    padding: 5px 0;
+}
+
+/* -----SearchBar------*/
+
+.search-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-self: center;
+
+    
+}
+
+.search-input {
+    padding: 10px 40px 10px 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px; 
+    color: black;
+    width:80%;
+    height: 100%; 
+}
+.search-icon{
+    position: absolute;
+    right: 10px;
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .slider img {
+        width: 50vw;
+        height: auto;
+        margin: 0 10px;
+    }
+}
