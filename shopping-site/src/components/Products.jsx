@@ -4,6 +4,7 @@ import '../styles/components.css'
 import { Product } from './Product'
 import phoneImg from '../../public/data/assets/logos/iphone deco-1.png'
 import { Category } from './Category'
+import { Product } from './Product'
 
 const categories=[
   {type:"phone",

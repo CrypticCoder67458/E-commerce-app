@@ -11,7 +11,7 @@ export  function Navbar({totalQuantity,setIsCartClicked}){
             <div className="shopping-cart--logo"
             onClick={()=>setIsCartClicked((prevValue)=>!prevValue)}>
                 <span >{totalQuantity}</span>
-                <ShoppingCart size={42} /> 
+                <ShoppingCart size={42}  /> 
             </div>
         </div>
         
