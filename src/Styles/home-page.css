@@ -1,6 +1,5 @@
 .container {
     display: flex;
-    overflow-y: hidden;
  
 }
 
@@ -75,32 +74,36 @@
 }
 /* -----Products------*/
 
-.products-container{
+.products-container {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-row-gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 3vh;
 }
 /* -----Product------*/
-.product{
+
+.product {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 290px;
-    height: 450px;
-    margin: 0 20px ;
+    width: 250px; /* Adjusted size */
+    height: 350px; /* Adjusted size */
+    margin: 0 20px;
 }
-.product h3{
+
+.product h3 {
     text-align: center;
-    margin: 0 5px
+    margin: 0 5px;
 }
-.product img{
-    width: 290px;
-    height: 270px;
+
+.product img {
+    width: 246px; /* Adjusted size */
+    height: 200px; /* Adjusted size */
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
-.product button{
-    font-size: 18px;
+
+.product button {
+    font-size: 16px; /* Adjusted size */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,33 +115,41 @@
     padding: 5px 0;
 }
 
+
 /* -----SearchBar------*/
 
 .search-container {
     position: relative;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    align-self: center;
+    margin-bottom: 50px;
+    
 
     
 }
 
-.search-input {
-    padding: 10px 40px 10px 20px;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 20px; 
-    color: black;
-    width:80%;
-    height: 100%; 
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 40px 50px 50px;
 }
-.search-icon{
+
+.search-input {
+    flex: 1; /* Expand to fill available space */
+    padding: 10px 40px 10px 20px;
+    background-color:white;
+    border: 1px solid #ccc; /* Add a light gray border */
+    border-radius: 20px;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.search-icon {
     position: absolute;
     right: 10px;
+    
 }
-
-
 
 
 
@@ -148,5 +159,10 @@
         width: 50vw;
         height: auto;
         margin: 0 10px;
+    }
+    .products-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 3vh;
     }
 }

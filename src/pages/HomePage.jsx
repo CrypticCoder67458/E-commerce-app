@@ -5,6 +5,7 @@ import "../Styles/styles.css"
 import { Slider } from '../Components/HomePageComponents/Slider';
 import { CategoriesBar } from '../Components/HomePageComponents/CategoriesBar';
 import { Products } from '../Components/HomePageComponents/Products';
+import { SearchBar } from '../Components/HomePageComponents/SearchBar';
 
 
 function HomePage() {

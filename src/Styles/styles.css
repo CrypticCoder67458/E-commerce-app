@@ -2,7 +2,8 @@
 *{
     margin: 0;
     padding: 0;
-    
+    overflow-y: scroll;
+
     
 }
 a {
@@ -53,7 +54,7 @@ a {
 }
 .zoom-effect:hover{
     cursor: pointer;
-    box-shadow: 0.625em 0.625em 1.25em #888888;
+    box-shadow: 0.625em 0.625em 2em #888888;
     transform: scale(1.1);
     
 }

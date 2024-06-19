@@ -6,8 +6,10 @@ export const SearchBar = () => {
   return (
     <div className="search-container">
         <input className="search-input" placeholder="Search for Product" />
-        <FiSearch size={24} className="search-icon"/>
-       
+        <span className="search-icon">
+          <FiSearch size={24}  color='black'/>
+        </span>
+        
     </div>
   )
 }
