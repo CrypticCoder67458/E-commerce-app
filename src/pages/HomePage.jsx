@@ -17,9 +17,6 @@ function HomePage() {
     fetchProducts();
   }, []);
  
-  
-
-
   async function fetchProducts() {
     try {
       const res = await fetch("https://fakestoreapi.in/api/products");
@@ -45,7 +42,11 @@ function HomePage() {
           setProductsByCategory={setProductsByCategory}/>
         <div>
           <Slider/>
-          <SearchBar/>
+          <SearchBar 
+          productsByCategory={productsByCategory}
+          setProductsByCategory={setProductsByCategory}
+          products={products}
+          />
           <Products 
             productsByCategory={productsByCategory}
             cartProducts={cartProducts}
