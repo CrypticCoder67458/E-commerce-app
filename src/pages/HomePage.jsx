@@ -12,6 +12,7 @@ function HomePage() {
   
   const [products,setProducts]=useState([])
   const [productsByCategory,setProductsByCategory]=useState([])
+  const [productNotFound, setProductNotFound] = useState(false);
   const { cartProducts, setCartProducts } = useContext(CartContext);
   useEffect(() => {
     fetchProducts();
@@ -43,17 +44,21 @@ function HomePage() {
         <div>
           <Slider/>
           <SearchBar 
-          productsByCategory={productsByCategory}
-          setProductsByCategory={setProductsByCategory}
-          products={products}
+            productsByCategory={productsByCategory}
+            setProductsByCategory={setProductsByCategory}
+            setProductNotFound={setProductNotFound}
           />
           <Products 
+            products={products}
             productsByCategory={productsByCategory}
+            setProductsByCategory={setProductsByCategory}
             cartProducts={cartProducts}
             setCartProducts={setCartProducts}
+            productNotFound={productNotFound} 
+            setProductNotFound={setProductNotFound}
           />
         </div>
-        </div>
+      </div>
         
         
       </div>
