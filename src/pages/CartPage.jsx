@@ -9,22 +9,22 @@ import { OrderSummary } from '../Components/CartPageComponents/OrderSummary';
 export function CartPage() {
   const { cartProducts, setCartProducts } = useContext(CartContext);
   return(
-    <div className='page'>
+    <div className='page '>
       <Navbar cartProducts={cartProducts}/>
-      <div>
-      {cartProducts.length > 0 ? (
-    <>
-      <CartProductItems 
-        cartProducts={cartProducts}
-        setCartProducts={setCartProducts}
-      />
-      <OrderSummary
-        cartProducts={cartProducts}
-      />
-    </>
-  ) : (
-    <p>You have no product in your cart</p>
-  )}
+      <div className='cart'>
+        {cartProducts.length > 0 ? (
+          <div className='cart' >
+            <CartProductItems 
+              cartProducts={cartProducts}
+              setCartProducts={setCartProducts}
+            />
+            <OrderSummary
+              cartProducts={cartProducts}
+            />
+          </div>
+          ) : (
+            <p>You have no product in your cart</p>
+          )}
       </div>
       
 </div>

@@ -2,12 +2,8 @@ import React from "react"
 import { Product } from "./Product"
 import '../../Styles/home-page.css'
 
-export const Products = ({cartProducts,setCartProducts,productsByCategory,setProductsByCategory,products }) => {
-  const [productNotFound, setProductNotFound] = React.useState(false);
-  function handleClick() {
-    setProductsByCategory(products);
-    setProductNotFound(false);
-  }
+export const Products = ({cartProducts,setCartProducts,productsByCategory,setProductsByCategory,products,productNotFound, setProductNotFound }) => {
+    
     React.useEffect(()=>{
       if(productsByCategory.length===0){
         setProductNotFound(true)
@@ -16,10 +12,10 @@ export const Products = ({cartProducts,setCartProducts,productsByCategory,setPro
         setProductNotFound(false)
       }
     },[productsByCategory])
-  
+
     console.log(cartProducts)
     return (
-      <div>
+      <>
           <div className='products-container'>
             {productsByCategory.map((product) => <Product
               key={product.id}
@@ -31,10 +27,10 @@ export const Products = ({cartProducts,setCartProducts,productsByCategory,setPro
           </div>
           <div className={productNotFound ? 'product-not-found' : 'hidden'}>
           <p>No Product was Found</p>
-          <button onClick={handleClick}>Continue Shopping</button>
+          <button onClick={()=>{setProductsByCategory(products)}}>Continue Shopping</button>
           </div>
 
-    </div>
+    </>
       
            
     )
