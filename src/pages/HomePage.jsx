@@ -41,7 +41,7 @@ function HomePage() {
         <CategoriesBar 
           products={products}
           setProductsByCategory={setProductsByCategory}/>
-        <div>
+        <div className='home-page-content'>
           <Slider/>
           <SearchBar 
             productsByCategory={productsByCategory}
