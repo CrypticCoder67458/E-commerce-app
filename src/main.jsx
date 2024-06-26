@@ -5,7 +5,7 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import ErrorPage from './pages/ErrorPage.jsx'
 import { CartPage } from './pages/CartPage.jsx'
 import { CartProvider } from './pages/CartContext.jsx'
-
+import { ProductPage } from './pages/ProductPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
     path: '/cart',
     element: <CartPage />,
     errorElement: <ErrorPage />
+  },
+  {
+    path: '/products/:Product',
+    element: <ProductPage />
   }
 ]);
 
