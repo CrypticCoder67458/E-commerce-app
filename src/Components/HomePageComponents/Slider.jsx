@@ -18,7 +18,13 @@ const sliderImages=[
 
 export const Slider = () => {
     const[indexCurrentImg,setIndexCurrentImg]=React.useState(0)
-    
+    React.useEffect(()=>{
+        const interval=setInterval(()=>
+            {handleRightClick()},3000)
+        return ()=>{
+            clearInterval(interval)
+        }
+    })
     
     function handleLeftClick(){
         if(indexCurrentImg===0){
