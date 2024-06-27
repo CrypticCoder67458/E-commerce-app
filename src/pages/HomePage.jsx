@@ -44,6 +44,7 @@ function HomePage() {
         <div className='home-page-content'>
           <Slider/>
           <SearchBar 
+            products={products}
             productsByCategory={productsByCategory}
             setProductsByCategory={setProductsByCategory}
             setProductNotFound={setProductNotFound}
