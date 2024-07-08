@@ -3,7 +3,7 @@ import {CartContext} from './CartContext';
 import { Navbar } from '../Components/shared Components/Navbar';
 import "../Styles/styles.css"
 import { Slider } from '../Components/HomePageComponents/Slider';
-import { CategoriesBar } from '../Components/HomePageComponents/CategoriesBar';
+import { SideBar } from '../Components/HomePageComponents/SideBar/SideBar';
 import { Products } from '../Components/HomePageComponents/Products';
 import { SearchBar } from '../Components/HomePageComponents/SearchBar';
 
@@ -20,7 +20,7 @@ function HomePage() {
  
   async function fetchProducts() {
     try {
-      const res = await fetch("https://fakestoreapi.in/api/products");
+      const res = await fetch("https://fakestoreapi.in/api/products?limit=50");
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
@@ -36,9 +36,12 @@ function HomePage() {
   return(
     <div className='home page'>
       <Navbar 
-        cartProducts={cartProducts}/>
+        cartProducts={cartProducts}
+        />
       <div className='container' >
-        <CategoriesBar 
+        
+        <SideBar 
+          productsByCategory={productsByCategory}
           products={products}
           setProductsByCategory={setProductsByCategory}/>
         <div className='home-page-content'>

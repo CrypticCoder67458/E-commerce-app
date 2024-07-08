@@ -14,18 +14,17 @@ export  function Navbar({cartProducts}){
             cartProducts.map(cartProduct=>quantity+=cartProduct.quantity)
         }
         setTotalQuantity(quantity)
-        
     }
     return(
-            <div className="navbar">
+            <div className="navbar" >
                 <Link to={"/"}>
                     <img 
-                    src={logo} className="logo"/>
+                    src={logo} className="logo" alt="logo"/>
                 </Link>
                 <Link to="/cart">
                     <div className="shopping-cart--logo ">
                         <span >{totalQuantity}</span>
-                        <ShoppingCart size={42} color="white" /> 
+                        <ShoppingCart size={42} color="white" className="shopping-cart" /> 
                     </div>
                 </Link>
                     
