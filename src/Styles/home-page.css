@@ -59,7 +59,6 @@
 }
 .categories-bar {
     text-indent: 15px;
-    height: 100vh;
     min-width: 160px;
     background: linear-gradient(to right, rgb(240,118,104), rgb(245,84,67));
     position: sticky;

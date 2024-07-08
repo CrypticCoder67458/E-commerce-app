@@ -21,11 +21,11 @@ export const PriceFilter = ({productsByCategory,setProductsByCategory,productsFi
             </h3>
             {shouldShow ? <div>
                 <form className='price-filter-form'>
-                    <label>from:</label>
+                    <label>min:</label>
                     <input type="number" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} />
                 </form>
                 <form className='price-filter-form'>
-                    <label>to:</label>
+                    <label>max:</label>
                     <input type="number" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
                 </form>
             </div> : null}
