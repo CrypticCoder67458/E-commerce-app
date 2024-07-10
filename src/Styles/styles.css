@@ -2,7 +2,7 @@
 *{
     margin: 0;
     padding: 0;
-    overflow-y: hidden;
+   
 
     
 }
@@ -19,6 +19,7 @@ a {
     background-color: rgb(255, 255, 240);
     height: 100vh;
     width: 100vw;
+    overflow-y:scroll;
 }
 .none{
     display:none;
@@ -74,7 +75,7 @@ a {
     flex-direction: column;
     align-items: center;
     row-gap: 20px;
-    overflow-y: hidden;
+    overflow-y:auto;
 }
 
 .product-details img{
