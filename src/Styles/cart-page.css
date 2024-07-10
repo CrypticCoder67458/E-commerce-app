@@ -91,7 +91,7 @@
     font-size: 18px;
     margin: 10px 0 0 50px;
 }
-@media (max-width: 768px){
+@media (max-width: 960px){
     .cart{
         flex-direction: column;
         margin-left: 10px;
@@ -103,4 +103,17 @@
         margin-left: 40px;
     }
 
+}
+
+@media (max-width: 548px){
+    .remove-from-cart{
+        display: none;
+    }
+}
+
+@media (max-width: 384px){
+    .cart-item img{
+        min-width: 90px;
+        max-height: 80px;
+    }
 }

@@ -2,8 +2,12 @@
 *{
     margin: 0;
     padding: 0;
-   
+    -webkit-scrollbar {
+        display: none;
+    }
 
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
     
 }
 a {
@@ -15,11 +19,13 @@ a {
     width: 100vw;
     background-color: rgb(255, 255, 240);
 }
-.page{
-    background-color: rgb(255, 255, 240);
-    height: 100vh;
-    width: 100vw;
-    overflow-y:scroll;
+body {
+    background: linear-gradient(to bottom, rgb(255, 255, 240), rgb(255, 255, 240)) fixed;
+}
+
+.page {
+    background-color: transparent;
+    overflow-y: scroll;
 }
 .none{
     display:none;
@@ -106,7 +112,21 @@ a {
     align-items: center;
     justify-content: center;
 }
+@media  (max-width: 600px) {
+    .product-details {
+    padding: 20px 50px;
+    font-size: 17px;
+    margin: 50px;
+    display: flex;
+    row-gap: 15px;
+}
 
+.product-details img{
+    width: 250px;
+    height: 200px;
+}
+
+}
 
 
 
