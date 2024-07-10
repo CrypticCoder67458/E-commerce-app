@@ -14,6 +14,7 @@
 }
 .home-page-content{
     width: 85%;
+    overflow-y:scroll;
 }
 
 /* -----Slider.jsx------*/
@@ -24,10 +25,12 @@
     display: flex;
     justify-content: center; 
     align-items: center;
+   
 }
 
 .slider-content {
     position: relative;
+    overflow-x: hidden;
 }
 
 .slider img {    
@@ -64,6 +67,13 @@
     position: sticky;
     top: 60px;
     left: 0;
+    overflow-y: auto;
+    -webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
 }
 .category-tab{
     text-indent: 10px;
