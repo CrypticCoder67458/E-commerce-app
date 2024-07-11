@@ -5,11 +5,11 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 40px;
-    background: linear-gradient(to left, rgb(255,157,34), rgb(255,173,107)); /* Subdued gradient */
+    background: linear-gradient(to left, rgb(255,157,34), rgb(255,173,107)); 
     gap: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
     position: sticky;
-    top: 0; 
+    top: 0px; 
 }
 
 .logo {
