@@ -1,6 +1,8 @@
 import React from 'react'
 import '../../Styles/styles.css'
-export const OrderSummary = ({cartProducts}) => {
+import { CartContext } from '../../Context/CartContext'
+export const OrderSummary = () => {
+    const {cartProducts}=React.useContext(CartContext)
     const[totalPrice,setTotalPrice]=React.useState(0)
     React.useEffect(()=>{getTotalPrice()},[cartProducts])
     function getTotalPrice(){

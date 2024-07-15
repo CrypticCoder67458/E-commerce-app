@@ -1,0 +1,39 @@
+import React from 'react'
+import '../../Styles/home-page.css'
+import phone from '../../../public/images/phone.png'
+import tv from '../../../public/images/tv.png'
+import laptop from '../../../public/images/laptop.png'
+import audio from '../../../public/images/headphone.png'
+import { CurrentCategoryContext } from '../../Context/CurrentCategoryContext'
+import { Link } from 'react-router-dom'
+export const CategorySelection = () => {
+  const { setCurrentCategory } = React.useContext(CurrentCategoryContext);
+
+  const categories = [
+    { name: 'phone', image: phone },
+    { name: 'tv', image: tv },
+    { name: 'laptop', image: laptop },
+    { name: 'audio', image: audio },
+  ];
+
+  const renderCategory = ({ name, image }, index) => (
+    <Link key={index} // Add index as key
+      to={`/products/${name}`}
+      onClick={() => setCurrentCategory(name)}
+      className='home-page-category'
+    >
+      <div className='category-border'>
+        <img src={image} alt={name} id={name} />
+      </div>
+      <b>{name}</b>
+    </Link>
+  );
+
+  return (
+    <div className='home-page-categories-container'>
+      <h2>Our Categories:</h2>
+      <div className='home-page-categories'>{categories.map(renderCategory)}</div>
+    </div>
+  );
+};
+

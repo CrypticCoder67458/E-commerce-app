@@ -14,15 +14,23 @@ a {
     color: inherit; 
     text-decoration: none; 
 }
+ul{
+    list-style: none;
+}
 #root{
     height: 100vh;
     width: 100vw;
     background-color: rgb(255, 255, 240);
 }
-body {
+/*body {
     background: linear-gradient(to bottom, rgb(255, 255, 240), rgb(255, 255, 240)) fixed;
-}
+}*/
 
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .page {
     height: 100vh;
     width: 100vw;
@@ -33,26 +41,6 @@ body {
     display:none;
 }
 
-/*.test1{
-    background-color: rgb(250,128,114);
-
-}
-.test2{
-    background-color: rgb(255,253,208);
-}
-.test3{
-    background-color: rgb(112, 128, 144);
-}
-.test1{
-    background-color: rgb(204,85,0);
-
-}
-.test2{
-    background-color: rgb(150,150,150);
-}
-.test3{
-    background-color: rgb(255, 255, 240);
-}*/
 .test1{
     background-color: rgb(250,128,114);
 
@@ -64,10 +52,18 @@ body {
     background-color: rgb(255, 255, 240);
 }
 .card{
-    background-color: rgb(255, 255, 255);
-    border-radius: 0.625em;
-    box-shadow: 0.125em 0.125em 0.5em #888888;
-    transition: transform 0.5s;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    background: rgb(255, 255, 255);
+    padding: 16px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+
 }
 .zoom-effect:hover{
     cursor: pointer;
@@ -75,21 +71,60 @@ body {
     transform: scale(1.1);
     
 }
-.product-details {
-    padding: 40px 100px;
+.product-page{
+    background-color: white;
+    height: 100%;
     font-size: 18px;
-    margin: 100px;
+}
+.product-header{
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+
+    font-size: 18px;
+}
+.product-details {
+    margin: 50px 10%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    row-gap: 20px;
-    overflow-y:auto;
+    row-gap: 10px;
+    align-items: flex-start;
+    
+        
+}
+.product-main-details{
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    row-gap: 50px;
+    
+}
+.product-page-intro{
+    width: 60%;
+}
+.product-main-details h2{
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    width: 60%;
+    margin-bottom: 5px;
+
+}
+.product-delivery-details{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+    
 }
 
 .product-details img{
     align-self: center;
-    width: 350px;
-    height: 300px;
+    width: 50%;
+    max-width: 500px;
+   
 }
 .product-buttons{
     display: flex;

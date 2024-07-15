@@ -3,9 +3,10 @@ import {ShoppingCart} from "phosphor-react"
 import "../../Styles/navbar.css"
 import  logo from '../../../public/images/ecommerce-logo.png'
 import { Link } from 'react-router-dom';
+import{CartContext} from '../../Context/CartContext'
 
-
-export  function Navbar({cartProducts}){
+export  function Navbar(){
+    const{cartProducts}=React.useContext(CartContext)
     const[totalQuantity,setTotalQuantity]=React.useState(0)
     React.useEffect(()=>{getTotalQuantity()},[cartProducts])
     function getTotalQuantity(){
@@ -17,9 +18,10 @@ export  function Navbar({cartProducts}){
     }
     return(
             <div className="navbar" >
-                <Link to={"/"}>
+                <Link to={"/"} className="flex">
                     <img 
                     src={logo} className="logo" alt="logo"/>
+                    <h2>TechHaven</h2>
                 </Link>
                 <Link to="/cart">
                     <div className="shopping-cart--logo ">
