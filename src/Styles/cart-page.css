@@ -1,6 +1,7 @@
 .cart{
     display: flex;
     margin: 40px;
+    column-gap: 100px;
 }
 .cart-title{
     margin:30px 0 0 100px
@@ -10,10 +11,12 @@
     flex-direction: column;
     justify-content: flex-start;
     row-gap: 30px;
-    margin: 0 40px ;
+    column-gap: 30px;
+    
 
 }
 .cart-item{
+
     max-height: 250px;
     padding: 10px 40px;
     font-size: 20px;
@@ -21,6 +24,7 @@
     align-items: center;
     justify-content: flex-start;
     position: relative;
+    
     
 }
 .cart-item img{
@@ -88,10 +92,11 @@
 
 }
 .order-summary{
-    min-width: 250px;
-    max-height: 220px;
-    margin: 20px;
+   width: 70%;
     padding: 20px;
+    max-height: 250px;
+    padding: 10px 40px;
+    font-size: 20px;
 }
 .order-summary--prices{
     margin: 5px 20px;
@@ -118,6 +123,11 @@
     .empty-cart{
         margin-left: 40px;
     }
+    .order-summary{
+       margin-top: 30px;
+       width: 100%;
+    }
+
 
 }
 
