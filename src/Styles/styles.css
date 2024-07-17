@@ -18,13 +18,13 @@ ul{
     list-style: none;
 }
 #root{
-    height: 100vh;
+    
     width: 100vw;
     background-color: rgb(255, 255, 240);
 }
-/*body {
+body {
     background: linear-gradient(to bottom, rgb(255, 255, 240), rgb(255, 255, 240)) fixed;
-}*/
+}
 
 .flex{
     display: flex;

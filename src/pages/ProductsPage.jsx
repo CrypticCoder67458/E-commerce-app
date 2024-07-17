@@ -15,8 +15,8 @@ export const ProductsPage = () => {
       <Navbar/>
       <div className='container' >
         <SideBar />
-          <div className='home-page-content'>
- 
+        <div className="vertical-line"></div>
+        <div className='home-page-content'>
           <Products/>
         </div>     
       </div>
