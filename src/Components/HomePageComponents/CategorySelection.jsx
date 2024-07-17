@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../Styles/home-page.css'
-import phone from '../../../public/images/phone.png'
+import mobile from '../../../public/images/phone.png'
 import tv from '../../../public/images/tv.png'
 import laptop from '../../../public/images/laptop.png'
 import audio from '../../../public/images/headphone.png'
@@ -10,7 +10,7 @@ export const CategorySelection = () => {
   const { setCurrentCategory } = React.useContext(CurrentCategoryContext);
 
   const categories = [
-    { name: 'phone', image: phone },
+    { name: 'mobile', image: mobile },
     { name: 'tv', image: tv },
     { name: 'laptop', image: laptop },
     { name: 'audio', image: audio },

@@ -2,15 +2,12 @@ import {useState,useEffect,useContext} from "react"
 import { Product } from "./Product"
 import '../../Styles/home-page.css'
 import { ShownProductsContext } from "../../Context/ShownProductsContext"
-import { ProductsContext } from "../../Context/ProductsContext"
 import { CurrentCategoryContext } from "../../Context/CurrentCategoryContext"
+import { useParams } from "react-router-dom"
 export const Products = () => {
     const { shownProducts, setShownProducts, productNotFound } = useContext(ShownProductsContext);
-    const { productsByCategory } = useContext(CurrentCategoryContext);
-
-    useEffect(() => {
-        setShownProducts(productsByCategory);
-    }, [productsByCategory]);
+    const { productsByCategory,currentCategory,setCurrentCategory } = useContext(CurrentCategoryContext);
+    const{category}=useParams()
 
     const renderProducts = () => {
         const productsContainer = (

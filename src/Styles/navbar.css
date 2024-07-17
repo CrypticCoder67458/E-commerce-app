@@ -1,19 +1,29 @@
 
 .navbar {
     z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 40px;
-    background: linear-gradient(to left, rgb(255,157,34), rgb(255,173,107)); 
-    gap: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 4px 20px 0px rgba(0,0,0,0.5);
     position: sticky;
     top: 0px; 
     color: white;
 
 }
-
+.navbar-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 50px;
+    background: linear-gradient(to left, rgb(255,157,34), rgb(255,173,107)); 
+    gap: 10px;
+}
+.navbar-search{
+    background-color: black;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 0 40px;
+}
 
 .logo {
     width: 55px;
@@ -45,6 +55,52 @@
     margin-right: 13px; 
     z-index: 1;
 }
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    
+}
 
+.search-input {
+    flex: 1; 
+    padding: 10px 40px 10px 20px;
+    background-color:white;
+    border: 1px solid #ccc; 
+    border-radius: 20px;
+    color: black;
 
+}
 
+.search-icon {
+    position: absolute;
+    right: 10px;
+    
+}
+
+.product-not-found{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.product-not-found button{
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: rgb(112, 128, 144);
+    color: white;
+}
+.hidden{
+    display: none;
+}
+.navbar-categories{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border: 3px solid rgb(255, 255, 255);
+    padding:  8px;
+    border-radius: 10px;
+}

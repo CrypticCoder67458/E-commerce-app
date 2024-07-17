@@ -12,6 +12,7 @@ export const ShownProductsProvider = ({ children }) => {
       } else {
         setProductNotFound(false);
       }})
+      console.log(shownProducts)
 
 
   return (

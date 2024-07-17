@@ -20,6 +20,7 @@ export const ProductsProvider = ({children}) => {
       console.error("Fetching products failed: ", error);
     }
   }
+  
 
   return (
     <ProductsContext.Provider value={{products,setProducts}}>{children}</ProductsContext.Provider>

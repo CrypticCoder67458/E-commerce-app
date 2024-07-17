@@ -3,11 +3,12 @@ import '../../../Styles/home-page.css'
 import { FaAngleDown } from "react-icons/fa";
 import { ShownProductsContext } from '../../../Context/ShownProductsContext';
 import { CurrentCategoryContext } from '../../../Context/CurrentCategoryContext';
+import { Link } from 'react-router-dom';
 export const BrandFilter = () => {
     const [shouldShow, setShouldShow] = useState(true);
     const [brands,setBrands]=useState([])
     const{shownProducts,setShownProducts}=useContext(ShownProductsContext)
-    const{productsByCategory}=useContext(CurrentCategoryContext)
+    const{productsByCategory,currentCategory}=useContext(CurrentCategoryContext)
 
    useEffect(() => {
         setBrands(getBrands());
@@ -27,8 +28,8 @@ function handleClick(brand){
     setShownProducts(updatedProducts)
     console.log(updatedProducts)
     }
-
     
+  
     return (
         <div className='filter-prompt' >
                 <h3 
@@ -37,11 +38,18 @@ function handleClick(brand){
                         Brands 
                         <FaAngleDown size={20} className='arrow'/>
                 </h3>
-                {shouldShow && brands.length>0 ? brands.map((brand, index) => (
-                <p key={index} onClick={() => handleClick(brand)} 
-                className='category-tab'>{brand}</p>
-            )) : null}
+                {shouldShow && brands.length>0 ? (
+                    <ul className='category-tab'>
+                        {brands.map((brand, index) => (
+                            <Link to={`/products/${currentCategory}/${brand}`}>
+                                <li key={index} onClick={() => handleClick(brand)} className='brand-item'>{brand}</li>
+                            </Link>
+                            
+                        ))}
+                    </ul>
+                ) : null}
                 
             </div>
   )
+
 }

@@ -4,7 +4,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { ProductsContext } from '../../../Context/ProductsContext';
 import { CurrentCategoryContext } from '../../../Context/CurrentCategoryContext';
 import { ShownProductsContext } from '../../../Context/ShownProductsContext';
-
+import{Link} from 'react-router-dom'
 
 const categories=["Tv","Laptop","Mobile","Audio"]
 export const CategoryFilter = () => {
@@ -26,13 +26,16 @@ export const CategoryFilter = () => {
                     <FaAngleDown size={20} className='arrow'/>
             </h3>
             {shouldShow && (
-                <>
+                <ul>
                     
                     {categories.map((category) => (
-                        <p onClick={() => setCurrentCategory(category.toLowerCase())} 
-                        className='category-tab' key={category}>{category}</p>
+                        <li>
+                            <Link to={`/products/${category.toLowerCase()}`} onClick={() => setCurrentCategory(category.toLowerCase())} 
+                            className='category-tab' key={category}>{category}</Link>
+                        </li>
+                        
                     ))}
-                </>
+                </ul>
             )}
         </div>
       )

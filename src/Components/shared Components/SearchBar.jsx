@@ -1,6 +1,6 @@
 import React from 'react'
 import { FiSearch } from 'react-icons/fi';
-import '../../Styles/home-page.css'
+import '../../Styles/navbar.css'
 
 export const SearchBar = ({ shownProducts, setShownProducts, setProductNotFound,products }) => {
 
