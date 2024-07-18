@@ -8,6 +8,7 @@ import{Products} from '../Components/ProductsPageComponents/Products'
 import { IoHomeOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { SortBy } from '../Components/ProductsPageComponents/SortBy'
 export const ProductsPage = () => {
   const{cartProducts,setCartProducts}=useContext(CartContext)
   const{products}=useContext(ProductsContext)
@@ -26,6 +27,7 @@ export const ProductsPage = () => {
               <MdKeyboardArrowRight />
               <b>{category}</b>
           </div >*/}
+          <SortBy/>
           <Products/>
         </div>     
       </div>

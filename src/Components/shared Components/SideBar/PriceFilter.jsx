@@ -1,6 +1,6 @@
 import {React, useState, useEffect, useContext} from 'react'
 import '../../../Styles/products-page.css'
-import { FaAngleDown } from "react-icons/fa";
+import { FaAngleDown,FaAngleUp } from "react-icons/fa";
 import { ShownProductsContext } from '../../../Context/ShownProductsContext';
 import { CurrentCategoryContext } from '../../../Context/CurrentCategoryContext';
 import Box from '@mui/material/Box';
@@ -13,13 +13,16 @@ export const PriceFilter = () => {
     const { productsByCategory } = useContext(CurrentCategoryContext);
     const [shouldShow, setShouldShow] = useState(false);
     const [minPrice, setMinPrice] =useState(0);
-    const [maxPrice, setMaxPrice] = useState(3000);
+    const [maxPrice, setMaxPrice] = useState(findHighestPrice(productsByCategory));
     
     useEffect(() => {
         
     setShownProducts(productsByCategory);
     setShownProducts((products) => products.filter(product => product.price >= minPrice && product.price <= maxPrice));
     }, [minPrice, maxPrice]);
+    useEffect(() => { 
+            setMaxPrice(findHighestPrice(productsByCategory));
+    }, [productsByCategory]);
     
     const formatPrice = (price) => {
         return Math.trunc(price);
@@ -27,17 +30,26 @@ export const PriceFilter = () => {
     function valuetext(value) {
         return `${formatPrice(value)}`;
       }
+    function findHighestPrice(products) {
+        let highestPrice = 0;
+        products.forEach((product) => {
+            if (product.price > highestPrice) {
+                highestPrice = product.price;
+            }
+        });
+        return highestPrice;
+    }
       
 
     return (
         <div className='filter-prompt'>
             <h3 className='filter' onClick={() => setShouldShow(!shouldShow)}>
                 Price
-                <FaAngleDown size={20} className='arrow'/>
+                {shouldShow ? <FaAngleUp size={20} /> : <FaAngleDown size={20} />}
             </h3>
             {shouldShow ? 
                 <div>
-                    <b className='filter-price-text'>{`$${formatPrice(minPrice)}`} - {`$${formatPrice(maxPrice)}`}+</b>
+                    <b className='filter-price-text'>{`$${formatPrice(minPrice)}`} - {`$${formatPrice(maxPrice)}`}</b>
                     <br/>
                     
                     {/* sx={{ width: 0 }} */}
@@ -48,7 +60,7 @@ export const PriceFilter = () => {
                             getAriaValueText={valuetext}
                             step={1}
                             min={0}
-                            max={3000}
+                            max={findHighestPrice(productsByCategory)}
                             value={[minPrice, maxPrice]}
                             onChange={(e, newValue) => {
                                 setMinPrice(newValue[0]);

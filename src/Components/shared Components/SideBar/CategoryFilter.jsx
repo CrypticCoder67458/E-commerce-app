@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../../Styles/home-page.css'
-import { FaAngleDown } from "react-icons/fa";
+import { FaAngleDown,FaAngleUp } from "react-icons/fa";
 import { ProductsContext } from '../../../Context/ProductsContext';
 import { CurrentCategoryContext } from '../../../Context/CurrentCategoryContext';
 import { ShownProductsContext } from '../../../Context/ShownProductsContext';
@@ -24,7 +24,7 @@ export const CategoryFilter = () => {
   return (
     <div className='filter-prompt'>
       <h3 className='filter' onClick={() => setShouldShow(!shouldShow)}>
-        Categories <FaAngleDown size={20}  />
+        Categories {shouldShow ? <FaAngleUp size={20} /> : <FaAngleDown size={20} />}
       </h3>
       {shouldShow && (
         <form className='filter-form '>
