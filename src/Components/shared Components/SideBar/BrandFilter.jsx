@@ -22,11 +22,12 @@ export const BrandFilter = () => {
         })
         return brands
     } 
-function handleClick(brand){
-    
-    const updatedProducts = productsByCategory.filter(product => product.brand.toLowerCase() === brand);
-    setShownProducts(updatedProducts)
-    console.log(updatedProducts)
+
+    function handleChange(event){
+        const selectedBrands = Array.from(event.target.selectedOptions, option => option.value);
+        const updatedProducts = productsByCategory.filter(product => selectedBrands.includes(product.brand.toLowerCase()));
+        setShownProducts(updatedProducts)
+        console.log(updatedProducts)
     }
     
   
@@ -39,16 +40,17 @@ function handleClick(brand){
                         <FaAngleDown size={20} className='arrow'/>
                 </h3>
                 {shouldShow && brands.length>0 ? (
-                    <ul className='category-tab'>
+                    <form className='filter-form' onChange={handleChange}>
                         {brands.map((brand, index) => (
-                            <Link to={`/products/${currentCategory}/${brand}`}>
-                                <li key={index} onClick={() => handleClick(brand)} className='brand-item'>{brand}</li>
-                            </Link>
+                            <label key={index}>
+                                <input type="checkbox" name="selectedBrands" value={brand} className='filter-input'/>
+                                {brand}
+                            </label>
                             
                         ))}
-                    </ul>
+                    </form>
                 ) : null}
-                
+            <div className="horizontal-line"></div>
             </div>
   )
 

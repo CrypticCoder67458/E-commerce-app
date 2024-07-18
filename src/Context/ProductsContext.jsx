@@ -5,7 +5,6 @@ export const ProductsProvider = ({children}) => {
   const [products,setProducts]=React.useState([])
   React.useEffect(() => {
     fetchProducts();
-    fetchProducts();
   }, []);
  
   async function fetchProducts() {

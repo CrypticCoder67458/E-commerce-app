@@ -5,7 +5,10 @@
     background-color: rgb(255, 255, 240);
     
 }
-.home-page-main-content{}
+.home-page-main-content{
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) ;
+}
 /*<----Hero---->*/
 .home-page-welcome{
     display: flex;
@@ -78,8 +81,7 @@
 
 /*<----Categories---->*/
 .home-page-categories-container{
-    background-color: white;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2) ;
+    
     margin-bottom: 40px;
     padding-bottom: 50px;
 }
@@ -185,80 +187,6 @@
 }
 
 
-/* -----SideBar------*/
-
-.categories-bar {
-    /*height: 100vh;
-    
-    min-width: 160px;
-    
-    /*background: linear-gradient(to right, rgb(240,118,104), rgb(245,84,67));
-    position: sticky;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    overflow-y: auto;
-    display: flex;*/
-    text-indent: 15px;
-    margin-top: 30px;
-    justify-content: space-between;
-    max-height: 100%;
-    transition: transform 0.33s;
-    height: 100%;
-    width: 12rem;
-    transform: translateX(0px);
-    border-radius: 0px 16px 16px 0px;
-    
-}
-.filter-prompt{
-    overflow: hidden;
-}
-.category-tab{
-    text-indent: 10px;
-    padding: 10px;
-    width: 100%;
-
-}
-.filter:hover{
-    
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0);
-    box-shadow: rgba(0, 0, 0, 0.08) 2px 4px 13px 0px;
-    border-color: rgba(255, 255, 255, 0);
-    text-decoration: underline;
-
-    }
-
-
-.categories-bar p:hover {
-    background-color:rgb(255,157,34);
-    transform: scale(1.05);
-    transition: transform 0.3s ease, background-color 0.3s ease; 
-}
-.filter{
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 5px 2px 10px rgba(0, 0, 0, 0.2);
-    
-}
-
-.arrow{
-    margin-right: 5px;
-
-}
-.price-filter-form{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px;
-}
-
-.price-filter-form input{
-    width: 50px;
-   
-}
 
 
 /* -----Products------*/
@@ -271,26 +199,22 @@
     scroll-margin-right: 0;
     flex-grow: 1; 
     box-sizing: border-box; 
+    margin: 20px;
 }
-.vertical-line {
-    border-left: 2px solid rgb(184, 180, 180);
-    margin-top: 20px;
-    margin-left: 2px;
-}
+
 .products-container {
     display: grid;
     place-items: center;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     grid-row-gap: 25px;
-    grid-column-gap: 40px;
-    padding: 20px 5px;
-    margin: 60px 40px ;
+    padding: 0px 5px;
+    
 }
 /* -----Product------*/
 .product {
-    width: 100%;
+    width: 90%;
     height: 100%;
-    max-width: 300px; /* Ensures all product cards are the same size */
+    max-width: 250px; 
     box-sizing: border-box;
     position: relative;
     background: rgb(255, 255, 255);
@@ -412,7 +336,7 @@
 
 }
 @media (max-width: 680px){
-    .categories-bar {
+    .side-bar {
         display: none;
         
     }

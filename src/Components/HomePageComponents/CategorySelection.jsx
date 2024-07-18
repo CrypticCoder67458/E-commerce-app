@@ -15,9 +15,10 @@ export const CategorySelection = () => {
     { name: 'laptop', image: laptop },
     { name: 'audio', image: audio },
   ];
+  
 
   const renderCategory = ({ name, image }, index) => (
-    <Link key={index} // Add index as key
+    <Link key={index} 
       to={`/products/${name}`}
       onClick={() => setCurrentCategory(name)}
       className='home-page-category'

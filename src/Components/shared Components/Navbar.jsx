@@ -33,8 +33,9 @@ export  function Navbar(){
                         </div>
                     </Link>
                 </div>
-
-                <div className="navbar-search">
+                {
+                    /*
+                    <div className="navbar-search">
                     <div className="navbar-categories">
                         <GiHamburgerMenu />
                         <h3>Categories</h3>
@@ -42,6 +43,9 @@ export  function Navbar(){
 
                     <SearchBar/>
                 </div>
+                    */
+                }
+                
             </div>
             
 

@@ -8,35 +8,42 @@ import{Link} from 'react-router-dom'
 
 const categories=["Tv","Laptop","Mobile","Audio"]
 export const CategoryFilter = () => {
-    const { products } = React.useContext(ProductsContext);
-    const [shouldShow, setShouldShow] = React.useState(true);
-    const { currentCategory, setCurrentCategory, productsByCategory } = React.useContext(CurrentCategoryContext);
-    const{shownProducts,setShownProducts}=React.useContext(ShownProductsContext)
+  const [shouldShow, setShouldShow] = React.useState(true);
+  const { currentCategory, setCurrentCategory, productsByCategory } = React.useContext(CurrentCategoryContext);
+  const { shownProducts, setShownProducts } = React.useContext(ShownProductsContext);
 
-    React.useEffect(() => {
-        setShownProducts(productsByCategory)
-    },[currentCategory])
-    
-      return (
-        <div className='filter-prompt' >
-            <h3 
-                className='filter' 
-                onClick={() => setShouldShow(!shouldShow)}>
-                    Categories 
-                    <FaAngleDown size={20} className='arrow'/>
-            </h3>
-            {shouldShow && (
-                <ul>
-                    
-                    {categories.map((category) => (
-                        <li>
-                            <Link to={`/products/${category.toLowerCase()}`} onClick={() => setCurrentCategory(category.toLowerCase())} 
-                            className='category-tab' key={category}>{category}</Link>
-                        </li>
-                        
-                    ))}
-                </ul>
-            )}
-        </div>
-      )
-}
+  React.useEffect(() => {
+    setShownProducts(productsByCategory);
+  }, [currentCategory]);
+
+  const handleCategoryChange = (event) => {
+    const category = event.target.value.toLowerCase();
+    setCurrentCategory(category);
+  };
+
+  return (
+    <div className='filter-prompt'>
+      <h3 className='filter' onClick={() => setShouldShow(!shouldShow)}>
+        Categories <FaAngleDown size={20}  />
+      </h3>
+      {shouldShow && (
+        <form className='filter-form '>
+          
+          {categories.map((category) => (
+            <label key={category}>
+              <input
+                type='radio'
+                name='category'
+                value={category}
+                onChange={handleCategoryChange}
+                className='filter-input'
+              />
+              {category}
+            </label>
+          ))}
+        </form>
+      )}
+      <div className="horizontal-line"></div>
+    </div>
+  );
+};

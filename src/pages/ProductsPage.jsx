@@ -11,20 +11,21 @@ import { Link } from "react-router-dom";
 export const ProductsPage = () => {
   const{cartProducts,setCartProducts}=useContext(CartContext)
   const{products}=useContext(ProductsContext)
-  const {category}=useParams()
+  const {params}=useParams()
   
   return (
     <>
       <Navbar/>
       <div className='container' >
         <SideBar />
-        <div className="vertical-line"></div>
         <div className='home-page-content'>
-          <div className="product-header">
+          {/*<div className="product-header">
+                      
+
               <Link to="/"><b><IoHomeOutline size={22} /></b></Link>
               <MdKeyboardArrowRight />
               <b>{category}</b>
-          </div >
+          </div >*/}
           <Products/>
         </div>     
       </div>
