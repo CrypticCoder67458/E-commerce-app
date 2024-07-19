@@ -6,11 +6,11 @@ import { CurrentCategoryContext } from '../../../Context/CurrentCategoryContext'
 import { ShownProductsContext } from '../../../Context/ShownProductsContext';
 import{Link} from 'react-router-dom'
 
-const categories=["Tv","Laptop","Mobile","Audio"]
+const categories=["Tv","Laptop","Mobile","Audio","Gaming","Appliances"]
 export const CategoryFilter = () => {
   const [shouldShow, setShouldShow] = React.useState(true);
   const { currentCategory, setCurrentCategory, productsByCategory } = React.useContext(CurrentCategoryContext);
-  const { shownProducts, setShownProducts } = React.useContext(ShownProductsContext);
+  const { setShownProducts } = React.useContext(ShownProductsContext);
 
   React.useEffect(() => {
     setShownProducts(productsByCategory);
@@ -28,7 +28,6 @@ export const CategoryFilter = () => {
       </h3>
       {shouldShow && (
         <form className='filter-form '>
-          
           {categories.map((category) => (
             <label key={category}>
               <input
@@ -37,6 +36,7 @@ export const CategoryFilter = () => {
                 value={category}
                 onChange={handleCategoryChange}
                 className='filter-input'
+                checked={currentCategory === category.toLowerCase()}
               />
               {category}
             </label>

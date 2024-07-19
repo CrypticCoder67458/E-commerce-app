@@ -18,7 +18,10 @@ function HomePage() {
       <Hero	/>
       <div className='home-page-main-content'>
         <CategorySelection/>
-        <ProductSlider products={products} text={"Featured Products"}/>
+        <ProductSlider products={products.filter(product=>product.popular)} text={"Bestseller Products"}/>
+        <ProductSlider products={products.filter(product=>product.discount>0)} text={"Discount  Products"}/>
+        
+
       </div>
       
           

@@ -16,7 +16,7 @@ export const ShownProductsProvider = ({ children }) => {
       useEffect(() => {
         setShownProducts(productsByCategory)
       },[productsByCategory])
-console.log(shownProducts)
+
 
   return (
     <ShownProductsContext.Provider value={{ shownProducts,setShownProducts,productNotFound}}>

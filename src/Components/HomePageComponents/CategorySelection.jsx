@@ -4,6 +4,8 @@ import mobile from '../../../public/images/phone.png'
 import tv from '../../../public/images/tv.png'
 import laptop from '../../../public/images/laptop.png'
 import audio from '../../../public/images/headphone.png'
+import gaming from '../../../public/images/gaming.png'
+import appliance from '../../../public/images/appliance.png'
 import { CurrentCategoryContext } from '../../Context/CurrentCategoryContext'
 import { Link } from 'react-router-dom'
 export const CategorySelection = () => {
@@ -14,6 +16,8 @@ export const CategorySelection = () => {
     { name: 'tv', image: tv },
     { name: 'laptop', image: laptop },
     { name: 'audio', image: audio },
+    { name: 'gaming', image: gaming },
+    { name: 'appliances', image: appliance },
   ];
   
 

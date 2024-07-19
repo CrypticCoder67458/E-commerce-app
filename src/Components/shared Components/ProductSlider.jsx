@@ -26,7 +26,7 @@ export const ProductSlider = ({products,text}) => {
         }
       };
   return (
-    <div>
+    <div className='product-slider-container'>
         <h2 className='slider-title'>{text}</h2>
         <Carousel responsive={responsive} 
         keyBoardControl={true}
@@ -36,7 +36,7 @@ export const ProductSlider = ({products,text}) => {
             {products.map((product) => (
                     <Product key={product.id} product={product}  />
                 ))}
-        </Carousel>;
+        </Carousel>
   </div>
   )
 }

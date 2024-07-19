@@ -1,7 +1,19 @@
-import React from 'react'
+import  { createContext, useState,useEffect ,useContext} from 'react';
 
-export const FiltersContext = () => {
+import { ShownProductsContext } from './ShownProductsContext';
+import { CurrentCategoryContext } from './CurrentCategoryContext';
+export const FiltersContext = createContext();
+
+
+export const FiltersProvider = ({ children }) => {
+  /*findHighestPrice(productsByCategory)*/
+  const [minPrice, setMinPrice] =useState(0);
+  const [maxPrice, setMaxPrice] = useState(6000);
+  const[productsByBrand,setProductsByBrand]=useState([])
+
+
+
   return (
-    <div>FiltersContext</div>
+    <FiltersContext.Provider value={{ minPrice, setMinPrice, maxPrice, setMaxPrice ,productsByBrand,setProductsByBrand}}>{children}</FiltersContext.Provider>
   )
 }

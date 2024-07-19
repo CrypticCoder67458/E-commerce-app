@@ -9,14 +9,21 @@ import { IoHomeOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { SortBy } from '../Components/ProductsPageComponents/SortBy'
+import { ShownProductsContext } from '../Context/ShownProductsContext';
+
 export const ProductsPage = () => {
   const{cartProducts,setCartProducts}=useContext(CartContext)
   const{products}=useContext(ProductsContext)
+  const{shownProducts}=useContext(ShownProductsContext)
+
   const {params}=useParams()
   
   return (
     <>
       <Navbar/>
+      <div>
+        <h3 className='side-bar-search-result'>{shownProducts.length > 0 && `(${shownProducts.length} results)`}</h3>
+      </div>
       <div className='container' >
         <SideBar />
         <div className='home-page-content'>

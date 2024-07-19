@@ -3,12 +3,13 @@ import '../../../Styles/home-page.css'
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import { ShownProductsContext } from '../../../Context/ShownProductsContext';
 import { CurrentCategoryContext } from '../../../Context/CurrentCategoryContext';
-
+import {FiltersContext} from '../../../Context/FiltersContext'
 export const BrandFilter = () => {
     const [shouldShow, setShouldShow] = useState(true);
     const [brands,setBrands]=useState([])
     const{setShownProducts}=useContext(ShownProductsContext)
-    const{productsByCategory,currentCategory}=useContext(CurrentCategoryContext)
+    const{productsByCategory}=useContext(CurrentCategoryContext)
+    const{setProductsByBrand,minPrice ,maxPrice}=useContext(FiltersContext)
 
    useEffect(() => {
         setBrands(getBrands());
@@ -26,7 +27,8 @@ export const BrandFilter = () => {
     function handleChange(){
         if(!productsByCategory) return;
         const selectedBrands = Array.from(document.querySelectorAll('input[name="selectedBrands"]:checked'), checkbox => checkbox.value);
-        const updatedProducts = selectedBrands.length === 0 ? productsByCategory : productsByCategory.filter(product => product && selectedBrands.includes(product.brand.toLowerCase()));
+        const updatedProducts = selectedBrands.length === 0 ? productsByCategory : productsByCategory.filter(product => product && selectedBrands.includes(product.brand.toLowerCase())&& product.price>=minPrice && product.price<=maxPrice);
+        setProductsByBrand(updatedProducts)
         setShownProducts(updatedProducts)
     
     }

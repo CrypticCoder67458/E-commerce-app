@@ -11,14 +11,18 @@ export const SortBy = () => {
   };
 
   return (
-    <div>
-      <select name="sortBy" id="sortBy" defaultValue="relevance" onChange={(handleSelectChange)}>
-        <option value="relevance">Sort By: Relevance</option>
-        <option value="popularity">Popularity</option>
-        <option value="price-desc">Cheapest</option>
-        <option value="price-asc">Most expensive</option>
-        <option value="onSale">On sale</option>
+    
+      <select name="sortBy" 
+        id="sortBy" 
+        defaultValue="relevance"
+        onChange={(handleSelectChange)}
+        className='sortBy-select'>
+          <option value="relevance">Sort By: Relevance</option>
+          <option value="popularity">Popularity</option>
+          <option value="price-desc">Cheapest</option>
+          <option value="price-asc">Most expensive</option>
+          <option value="onSale">On sale</option>
       </select>
-    </div>
+   
   );
 };

@@ -1,4 +1,4 @@
-import {React,useState,useEffect} from "react";
+import {React,useState,useEffect,useContext} from "react";
 import { useParams } from "react-router-dom";
 import '../Styles/styles.css'
 import { Link } from "react-router-dom";
@@ -6,10 +6,20 @@ import { Navbar } from '../Components/shared Components/Navbar';
 import { AddToCartButton } from "../Components/ProductsPageComponents/AddToCartButton";
 import { IoHomeOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { IoReturnUpBack } from "react-icons/io5";
+import { ProductSlider } from "../Components/shared Components/ProductSlider";
+import {CurrentCategoryContext} from '../Context/CurrentCategoryContext'
 export function ProductPage() {
   const product=JSON.parse(useParams().Product);
   const [deliveryDate, setDeliveryDate] = useState('');
+  const{productsByCategory,setCurrentCategory}=useContext(CurrentCategoryContext)
 
+
+  useEffect(() => {
+    setCurrentCategory(product.category)
+    
+  })
+  
   useEffect(() => {
     let currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + 3);
@@ -20,17 +30,18 @@ export function ProductPage() {
 
     setDeliveryDate(`${day}/${month}/${year}`);
   }, []);
+  
     return (
-      <div className="product-page">
+      <div className="product-page page">
         <Navbar  />
-    
        
 
         <div className="product-details">
           <div className="product-header">
             <Link to="/"><b><IoHomeOutline size={22} /></b></Link>
             <MdKeyboardArrowRight />
-            <b>{product.category}</b>
+            <Link to={`/products/${product.category}`}><b>{product.category.toUpperCase()}</b></Link>
+            
           </div >
           <div className="product-main-details">
               <div  className="product-page-intro">
@@ -51,6 +62,11 @@ export function ProductPage() {
                 <AddToCartButton 
                 className="add-to-cart-btn "
                 product={product}/>
+                <Link to={`/products/${product.category}`} className="add-to-cart-btn ">
+                  <button  className="add-to-cart-btn " >
+                  <IoReturnUpBack size={25}/>Go back Shopping</button>
+                </Link>
+                
               
               </div>
           </div>
@@ -59,7 +75,7 @@ export function ProductPage() {
               <p>{product?.description || "N/A"}</p>
 
       </div>
-
+      <ProductSlider products={productsByCategory} text='Products that may also interest you'/>
         
       </div>
       

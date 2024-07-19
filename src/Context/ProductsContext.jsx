@@ -14,7 +14,13 @@ export const ProductsProvider = ({children}) => {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
       const data = await res.json();
-      setProducts(data.products);
+      const productsWithDiscount = data.products.map(product => {
+        if(product.discount>=15)
+          return product
+        else
+          return {...product, discount: 0}
+      });
+      setProducts(productsWithDiscount);
     } catch (error) {
       console.error("Fetching products failed: ", error);
     }
