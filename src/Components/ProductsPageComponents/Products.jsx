@@ -1,27 +1,35 @@
-import {useState,useEffect,useContext} from "react"
-import { Product } from "./Product"
-import '../../Styles/home-page.css'
-import { ShownProductsContext } from "../../Context/ShownProductsContext"
-import { CurrentCategoryContext } from "../../Context/CurrentCategoryContext"
-import { useParams } from "react-router-dom"
+import { useContext, useEffect } from "react";
+import { Product } from "./Product";
+import "../../Styles/home-page.css";
+import { ProductsContext } from "../../Context/ProductsContext";
+import { filterByCategory } from "../../utils/FilterProduct";
+
 export const Products = () => {
-    const { shownProducts, setShownProducts, productNotFound } = useContext(ShownProductsContext);
-    const { productsByCategory,currentCategory,setCurrentCategory } = useContext(CurrentCategoryContext);
-    const{category}=useParams()
+    const { shownProducts, setShownProducts, currentCategory, products, setMinPrice, setMaxPrice, setCurrentBrands } = useContext(ProductsContext);
 
     const renderProducts = () => {
+        console.log('Rendering products:', shownProducts);
         const productsContainer = (
             <div className='products-container'>
-                {shownProducts.map((product) => (
-                    <Product key={product.id} product={product} />
-                ))}
+                {
+                    shownProducts.map((product) => (
+                        <Product key={product.id} product={product} />
+                    ))
+                }
             </div>
         );
 
+        const resetFilters = () => {
+            setMinPrice(0);
+            setMaxPrice(Infinity);
+            setCurrentBrands([]);
+            setShownProducts(filterByCategory(products, currentCategory));
+        };
+
         const noProductsFound = (
-            <div className={productNotFound ? 'product-not-found' : 'hidden'}>
+            <div className={shownProducts.length ? 'hidden' : 'product-not-found'}>
                 <p>No Products Found</p>
-                <button onClick={() => setShownProducts(productsByCategory)}>Continue Shopping</button>
+                <button onClick={resetFilters}>Continue Shopping</button>
             </div>
         );
 
@@ -33,9 +41,12 @@ export const Products = () => {
         );
     };
 
-    return renderProducts();
-}
+    useEffect(() => {
+        console.log('Products updated:', products);
+    }, [products]);
 
+    return renderProducts();
+};
   
   
         

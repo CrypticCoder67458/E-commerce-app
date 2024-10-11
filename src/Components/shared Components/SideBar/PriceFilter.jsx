@@ -1,60 +1,20 @@
 import {React, useState, useEffect, useContext} from 'react'
 import '../../../Styles/products-page.css'
 import { FaAngleDown,FaAngleUp } from "react-icons/fa";
-import { ShownProductsContext } from '../../../Context/ShownProductsContext';
-import { CurrentCategoryContext } from '../../../Context/CurrentCategoryContext';
+import { ProductsContext } from '../../../Context/ProductsContext';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import{FiltersContext} from '../../../Context/FiltersContext'
-
+import{formatPrice,valuetext,findHighestPrice,findLowestPrice} from '../../../utils/PriceFunctions'
+import { filterByCategory } from '../../../utils/FilterProduct';
 
 export const PriceFilter = () => {
-    const { shownProducts, setShownProducts } = useContext(ShownProductsContext);
-    const { productsByCategory } = useContext(CurrentCategoryContext);
-    const { minPrice, setMinPrice, maxPrice, setMaxPrice,productsByBrand} = useContext(FiltersContext);
+
+    const { products,minPrice, setMinPrice, maxPrice, setMaxPrice} = useContext(ProductsContext);
     const [shouldShow, setShouldShow] = useState(false);
-
-    function filterByPrice(products) {
-        return products.filter((product) => product.price >= minPrice && product.price <= maxPrice);
-    }
-    useEffect(() => {
-       
-        setMaxPrice(findHighestPrice(productsByCategory));
-        setMinPrice(0);
-    }, [productsByCategory]);
-    console.log(minPrice, maxPrice);
-    useEffect(() => {
-        let filteredProducts = productsByCategory;
-      
-        if (productsByBrand.length > 0) {
-            filteredProducts = productsByBrand;
-        }
-        console.log(filteredProducts);
-
-        filteredProducts = filterByPrice(filteredProducts);
-
-        setShownProducts(filteredProducts);
-    }, [minPrice, maxPrice, productsByCategory, productsByBrand]);
-
+  
     
-    const formatPrice = (price) => {
-        return Math.trunc(price);
-    };
-
-    function valuetext(value) {
-        return `${formatPrice(value)}`;
-    }
-
-    function findHighestPrice(products) {
-        let highestPrice = 0;
-        products.forEach((product) => {
-            if (product.price > highestPrice) {
-                highestPrice = product.price;
-            }
-        });
-        return highestPrice;
-    }
-
+    
+    
     const handleSliderChange = (event, newValue) => {
         setMinPrice(newValue[0]);
         setMaxPrice(newValue[1]);
@@ -77,8 +37,8 @@ export const PriceFilter = () => {
                             getAriaValueText={valuetext}
                             step={1}
                             min={0}
-                            max={findHighestPrice(productsByCategory)}
-                            value={[(minPrice||0),(maxPrice||0)]}
+                            max={findHighestPrice(products)}
+                            value={[(minPrice||0),(maxPrice||Infinity)]}
                             onChange={handleSliderChange}
                             valueLabelDisplay="off"
                         />

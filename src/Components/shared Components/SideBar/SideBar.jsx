@@ -5,15 +5,12 @@ import { BrandFilter } from './BrandFilter';
 import { PriceFilter } from './PriceFilter';
 export const SideBar = () => {
 return (
-  <div >
-    
-    <div className='side-bar'>
-      <CategoryFilter />
-      <BrandFilter />
-      <PriceFilter />
-  </div>
-  </div>
-  
+      <div className='side-bar'>
+        <CategoryFilter />
+        <BrandFilter />
+        <PriceFilter />
+      </div>
+
 )
 }
 

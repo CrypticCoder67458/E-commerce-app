@@ -6,10 +6,11 @@ import laptop from '../../../public/images/laptop.png'
 import audio from '../../../public/images/headphone.png'
 import gaming from '../../../public/images/gaming.png'
 import appliance from '../../../public/images/appliance.png'
-import { CurrentCategoryContext } from '../../Context/CurrentCategoryContext'
+
 import { Link } from 'react-router-dom'
+import { ProductsContext } from '../../Context/ProductsContext'
 export const CategorySelection = () => {
-  const { setCurrentCategory } = React.useContext(CurrentCategoryContext);
+  const { setCurrentCategory } = React.useContext(ProductsContext);
 
   const categories = [
     { name: 'mobile', image: mobile },

@@ -8,17 +8,21 @@ import { IoHomeOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { IoReturnUpBack } from "react-icons/io5";
 import { ProductSlider } from "../Components/shared Components/ProductSlider";
-import {CurrentCategoryContext} from '../Context/CurrentCategoryContext'
+import{LoadingPage} from "../pages/LoadingPage";
+import { ProductsContext } from "../Context/ProductsContext";
+import { filterByCategory } from "../utils/FilterProduct";
 export function ProductPage() {
   const product=JSON.parse(useParams().Product);
   const [deliveryDate, setDeliveryDate] = useState('');
-  const{productsByCategory,setCurrentCategory}=useContext(CurrentCategoryContext)
+  const{currentCategory,setCurrentCategory,products,loading}=useContext(ProductsContext)
+
 
 
   useEffect(() => {
+    if (product.category!==currentCategory)
     setCurrentCategory(product.category)
     
-  })
+  },[])
   
   useEffect(() => {
     let currentDate = new Date();
@@ -30,55 +34,54 @@ export function ProductPage() {
 
     setDeliveryDate(`${day}/${month}/${year}`);
   }, []);
-  
-    return (
-      <div className="product-page page">
-        <Navbar  />
-       
-
-        <div className="product-details">
-          <div className="product-header">
-            <Link to="/"><b><IoHomeOutline size={22} /></b></Link>
-            <MdKeyboardArrowRight />
-            <Link to={`/products/${product.category}`}><b>{product.category.toUpperCase()}</b></Link>
-            
-          </div >
-          <div className="product-main-details">
-              <div  className="product-page-intro">
-                <h2>{product?.title || "Product"}</h2>
-                <img src={product?.image} alt={product?.title || "Product"} />
-              </div>
-              <div className="product-delivery-details">
-                <div>
-                  <h1>${product.price}</h1>
-                  <ul>
-                    <li><b>Brand:</b> {product?.brand || "N/A"}</li>
-                    <li><b>Model:</b> {product?.model || "N/A"}</li>
-                    <li><b>Color:</b> {product?.color || "N/A"}</li>
-                  </ul>
-                </div>
-                
-                <p><b>Delivery Date:</b> {deliveryDate} </p>
-                <AddToCartButton 
-                className="add-to-cart-btn "
-                product={product}/>
-                <Link to={`/products/${product.category}`} className="add-to-cart-btn ">
-                  <button  className="add-to-cart-btn " >
-                  <IoReturnUpBack size={25}/>Go back Shopping</button>
-                </Link>
-                
-              
-              </div>
-          </div>
-              
-              <h2>About this Product:</h2>
-              <p>{product?.description || "N/A"}</p>
-
-      </div>
-      <ProductSlider products={productsByCategory} text='Products that may also interest you'/>
-        
-      </div>
-      
-    );
-}
-
+  return (  
+    <>  
+        {loading ? (  
+            <LoadingPage />  
+        ) : (  
+            <div className="product-page page">  
+                <Navbar />  
+                <div className="product-details">  
+                    <div className="product-header">  
+                        <Link to="/">  
+                            <b><IoHomeOutline size={22} /></b>  
+                        </Link>  
+                        <MdKeyboardArrowRight />  
+                        <Link to={`/products/${product.category}`}>  
+                            <b>{product.category.toUpperCase()}</b>  
+                        </Link>  
+                    </div>  
+                    <div className="product-main-details">  
+                        <div className="product-page-intro">  
+                            <h2>{product?.title || "Product"}</h2>  
+                            <img src={product?.image} alt={product?.title || "Product"} />  
+                        </div>  
+                        <div className="product-delivery-details">  
+                            <div>  
+                                <h1>${product.price}</h1>  
+                                <ul>  
+                                    <li><b>Brand:</b> {product?.brand || "N/A"}</li>  
+                                    <li><b>Model:</b> {product?.model || "N/A"}</li>  
+                                    <li><b>Color:</b> {product?.color || "N/A"}</li>  
+                                </ul>  
+                            </div>  
+                            <p><b>Delivery Date:</b> {deliveryDate}</p>  
+                            <AddToCartButton  
+                                className="add-to-cart-btn"  
+                                product={product}  
+                            />  
+                            <Link to={`/products/${product.category}`} className="add-to-cart-btn">  
+                                <button className="add-to-cart-btn">  
+                                    <IoReturnUpBack size={25}/> Go back Shopping  
+                                </button>  
+                            </Link>  
+                        </div>  
+                    </div>  
+                    <h2>About this Product:</h2>  
+                    <p>{product?.description || "N/A"}</p>  
+                </div>  
+                <ProductSlider products={filterByCategory(products, product.category)} text='Products that may also interest you' />  
+            </div>  
+        )}  
+    </>  
+);}

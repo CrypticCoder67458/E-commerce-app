@@ -2,9 +2,7 @@ import React from "react"
 import '../../Styles/styles.css'
 import '../../Styles/home-page.css'
 import{Link} from 'react-router-dom'
-import{CartContext} from '../../Context/CartContext'
 export function Product({product}) {
-    const{cartProducts,setCartProducts}=React.useContext(CartContext)
     return (
           
           

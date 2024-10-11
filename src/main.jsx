@@ -7,6 +7,7 @@ import { CartPage } from './pages/CartPage.jsx'
 import { ProductPage } from './pages/ProductPage.jsx'
 import { ContextProvider } from './Context/ContextProvider.jsx'
 import { ProductsPage } from './pages/ProductsPage.jsx'
+import { Navbar } from './Components/shared Components/Navbar.jsx'
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    
     <ContextProvider>
       <RouterProvider router={router} />
     </ContextProvider>

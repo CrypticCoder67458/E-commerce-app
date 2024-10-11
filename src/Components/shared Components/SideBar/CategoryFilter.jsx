@@ -2,19 +2,13 @@ import React from 'react'
 import '../../../Styles/home-page.css'
 import { FaAngleDown,FaAngleUp } from "react-icons/fa";
 import { ProductsContext } from '../../../Context/ProductsContext';
-import { CurrentCategoryContext } from '../../../Context/CurrentCategoryContext';
-import { ShownProductsContext } from '../../../Context/ShownProductsContext';
-import{Link} from 'react-router-dom'
 
 const categories=["Tv","Laptop","Mobile","Audio","Gaming","Appliances"]
 export const CategoryFilter = () => {
   const [shouldShow, setShouldShow] = React.useState(true);
-  const { currentCategory, setCurrentCategory, productsByCategory } = React.useContext(CurrentCategoryContext);
-  const { setShownProducts } = React.useContext(ShownProductsContext);
+  const { currentCategory, setCurrentCategory } = React.useContext(ProductsContext);
 
-  React.useEffect(() => {
-    setShownProducts(productsByCategory);
-  }, [currentCategory]);
+
 
   const handleCategoryChange = (event) => {
     const category = event.target.value.toLowerCase();
