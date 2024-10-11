@@ -1,48 +1,26 @@
 
-export const sortBy = (functionality,setShownProducts,productsByCategory) => {
-    
+export const sortBy = (functionality, products,filteredProducts) => {
+    const sortByRelevance = () => filteredProducts;
 
-    const sortByRelevance = () => setShownProducts(productsByCategory);
     const sortByPopularity = () =>
-        setShownProducts((products) =>
-            products.filter(({ popular }) => popular)
-        );
-        const sortByPriceAsc = () => {
-            setShownProducts((products) => {
-                const newProducts = [...products];
-                return newProducts.sort((a, b) => b.price - a.price);
-            });
-        };
-        
-        const sortByPriceDesc = () => {
-            setShownProducts((products) => {
-                const newProducts = [...products];
-                return newProducts.sort((a, b) => a.price - b.price);
-            });
-        };
+        products.filter(({ popular }) => popular);
+    const sortByPriceDesc = () => [...products].sort((a, b) => a.price - b.price);
+    const sortByPriceAsc = () => [...products].sort((a, b) => b.price - a.price);
     const sortByOnSale = () =>
-        setShownProducts((products) =>
-            products.filter(({ discount }) => discount > 0)
-        );
+        products.filter(({ discount }) => discount > 0);
 
     switch (functionality) {
         case 'relevance':
-            sortByRelevance();
-            break;
+            return sortByRelevance();
         case 'popularity':
-            sortByPopularity();
-            break;
+            return sortByPopularity();
         case 'price-desc':
-            sortByPriceDesc();
-            break;
+            return sortByPriceDesc();
         case 'price-asc':
-            sortByPriceAsc();
-            break;
+            return sortByPriceAsc();
         case 'onSale':
-            sortByOnSale();
-            break;
+            return sortByOnSale();
         default:
-            sortByRelevance();
-            break;
+            return sortByRelevance();
     }
 };

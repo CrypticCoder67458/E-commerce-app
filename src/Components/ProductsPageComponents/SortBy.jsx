@@ -1,16 +1,21 @@
-import React from 'react';
 import { sortBy } from '../../utils/SortByFunctions';
-import {useContext} from 'react'
+import {useContext,useEffect,useState} from 'react'
 import{ProductsContext} from '../../Context/ProductsContext'
 import{filterProducts} from '../../utils/FilterProduct'
 export const SortBy = () => {
     
     const{setShownProducts, currentCategory, currentBrands, minPrice, maxPrice,products}=useContext(ProductsContext)
-
+    const[currentFilter,setCurrentFilter]=useState('relevance')
+    
+    
+    useEffect(() => {
+        const filteredProducts =filterProducts(products, currentCategory, currentBrands, minPrice, maxPrice)
+        const sortedProducts=sortBy(currentFilter,filteredProducts,filteredProducts);
+        setShownProducts(sortedProducts);
+    },[products, currentCategory, currentBrands, minPrice, maxPrice,currentFilter]);
+    
     const handleSelectChange = (event) => {
-    const filteredProducts =filterProducts(products, currentCategory, currentBrands, minPrice, maxPrice)
-  
-    sortBy(event.target.value,setShownProducts,filteredProducts);
+    setCurrentFilter(event.target.value);
   };
 
   return (
