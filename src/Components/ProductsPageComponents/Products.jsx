@@ -8,7 +8,6 @@ export const Products = () => {
     const { shownProducts, setShownProducts, currentCategory, products, setMinPrice, setMaxPrice, setCurrentBrands } = useContext(ProductsContext);
 
     const renderProducts = () => {
-        console.log('Rendering products:', shownProducts);
         const productsContainer = (
             <div className='products-container'>
                 {
@@ -41,9 +40,6 @@ export const Products = () => {
         );
     };
 
-    useEffect(() => {
-        console.log('Products updated:', products);
-    }, [products]);
 
     return renderProducts();
 };

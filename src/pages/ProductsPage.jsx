@@ -13,26 +13,31 @@ export const ProductsPage = () => {
   const{shownProducts,currentCategory}=useContext(ProductsContext)
   
   return (
-    <>
+    <div className='products-page'>
       <Navbar/>
-      <div>
-        <h3 className='side-bar-search-result'>{shownProducts && shownProducts.length > 0 && `(${shownProducts.length} results)`}</h3>
-      </div>
+      
       <div className='container' >
         <SideBar />
         <div className='home-page-content'>
           <div className="product-header">
-                      
+             
+            <div>
+              <div className='return-home-links'>
+                <Link to="/"><b><IoHomeOutline size={22} /></b></Link>
+                <MdKeyboardArrowRight  />
+                <b>{currentCategory}</b>
+                </div>
+                <h3 className='search-result'>{shownProducts && shownProducts.length > 0 && `(${shownProducts.length} results)`}
+                </h3>
+            </div>
+            <SortBy/>
 
-              <Link to="/"><b><IoHomeOutline size={22} /></b></Link>
-              <MdKeyboardArrowRight />
-              <b>{currentCategory}</b>
           </div >
-          <SortBy/>
+          
           <Products/>
         </div>     
       </div>
-    </>
+    </div>
     
   )
 }

@@ -7,7 +7,7 @@ import { CartPage } from './pages/CartPage.jsx'
 import { ProductPage } from './pages/ProductPage.jsx'
 import { ContextProvider } from './Context/ContextProvider.jsx'
 import { ProductsPage } from './pages/ProductsPage.jsx'
-import { Navbar } from './Components/shared Components/Navbar.jsx'
+
 
 
 const router = createBrowserRouter([
@@ -22,17 +22,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
-    path: '/:Product',
+    path: '/products/product/:productId',
     element: <ProductPage />
   },
   {
     path:'/products/:category',
     element: <ProductsPage/>
   },
-  {
-    path:'/products/:category/:brand',
-    element: <ProductsPage/>
-  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

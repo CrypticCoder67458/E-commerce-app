@@ -24,7 +24,7 @@ export const BrandFilter = () => {
      
     useEffect(() => {  
         setCurrentBrands(brands.filter((brand, index) => isChecked[index]));  
-    }, [isChecked, brands]); // Added brands to dependencies to prevent stale closure  
+    }, [isChecked, brands]);
 
     const handleChange = (position) => {  
         const updatedCheckedState = isChecked.map((item, index) =>  
@@ -70,15 +70,3 @@ export const BrandFilter = () => {
         </div>  
     );  
 };  
-
-  {/*
-
-function handleChange(){
-    if(!productsByCategory) return;
-    const selectedBrands = Array.from(document.querySelectorAll('input[name="selectedBrands"]:checked'), checkbox => checkbox.value);
-    const updatedProducts = selectedBrands.length === 0 ? productsByCategory : productsByCategory.filter(product => product && selectedBrands.includes(product.brand.toLowerCase())&& product.price>=minPrice && product.price<=maxPrice);
-    setProductsByBrand(updatedProducts)
-    setShownProducts(updatedProducts)
-
-}} 
-    }*/}

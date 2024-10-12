@@ -13,14 +13,13 @@ export const ProductsProvider = ({children}) => {
 
     
   useEffect(() => {
-    console.log("Fetching products");
     fetchProducts();
   }, []);
   
   async function fetchProducts() {
     setLoading(true);
     try {
-      const res = await fetch("https://fakestoreapi.in/api/products?limit=150");
+      const res = await fetch("https://fakestoreapi.in/api/products?limit=300");
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }
@@ -33,7 +32,6 @@ export const ProductsProvider = ({children}) => {
       });
       setProducts(productsWithDiscount);
       setShownProducts(productsWithDiscount);
-      console.log("Products fetched successfully");
     } catch (error) {
       console.error("Fetching products failed: ", error);
     }finally{
@@ -42,17 +40,13 @@ export const ProductsProvider = ({children}) => {
   }
 
   useEffect(() => {
-    console.log("Initial values:", { currentCategory, currentBrands, minPrice, maxPrice });
     if (!loading && products.length > 0) {
         const filteredProducts = filterProducts(products, currentCategory, currentBrands, minPrice, maxPrice);
-        console.log("Filtered products to show:", filteredProducts);
         setShownProducts(filteredProducts);
     }
 }, [currentCategory, currentBrands, minPrice, maxPrice, products, loading]);
 
-useEffect(() => {
-    console.log('hownProducts updated:', shownProducts);
-}, [shownProducts]);
+
 
   
 

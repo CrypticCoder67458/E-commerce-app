@@ -26,6 +26,7 @@ export  function Navbar(){
                         src={logo} className="logo" alt="logo"/>
                         <h2>TechHaven</h2>
                     </Link>
+                    <SearchBar/>
                     <Link to="/cart">
                         <div className="shopping-cart--logo ">
                             <span >{totalQuantity}</span>

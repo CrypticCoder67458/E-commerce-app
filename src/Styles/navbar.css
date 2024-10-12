@@ -55,29 +55,7 @@
     margin-right: 13px; 
     z-index: 1;
 }
-.search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 60%;
-    
-}
 
-.search-input {
-    flex: 1; 
-    padding: 10px 40px 10px 20px;
-    background-color:white;
-    border: 1px solid #ccc; 
-    border-radius: 20px;
-    color: black;
-
-}
-
-.search-icon {
-    position: absolute;
-    right: 10px;
-    
-}
 
 .product-not-found{
     display: flex;
