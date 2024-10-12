@@ -1,24 +1,37 @@
-import React from 'react'
+import {useContext,useState,useEffect} from 'react'
 import { FiSearch } from 'react-icons/fi';
 import '../../Styles/navbar.css'
 import { ProductsContext } from '../../Context/ProductsContext';
 import '../../Styles/searchbar.css'
-import { Link } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 export const SearchBar = () => {
 
-  const [searchTerm, setSearchTerm] = React.useState('');
-  const[suggestions,setSuggestions] = React.useState([]);
-  const {products,setCurrentCategory} = React.useContext(ProductsContext);
-  
+  const [searchTerm, setSearchTerm] = useState('');
+  const[suggestions,setSuggestions] = useState([]);
+  const {products,setCurrentCategory} = useContext(ProductsContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  React.useEffect(() => {
+
+  useEffect(() => {
     if(searchTerm !== '') {
     setSuggestions(products.filter((product) => product.title.toLowerCase().includes(searchTerm.toLowerCase())))
   }},[searchTerm,products])
 
+
   const handleChange = (event) => {
     event.preventDefault();
     setSearchTerm(event.target.value);
+  };
+  
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      navigate(`/products/product/${suggestions[0].id}`, { replace: true, state: { from: location.pathname } });
+    }
+  };
+
+  const handleClick = (event) => {
+    navigate(`/products/product/${event.target.id}`, { replace: true, state: { from: location.pathname } });
   };
   
 
@@ -30,6 +43,7 @@ export const SearchBar = () => {
           placeholder="Search for Product"
           onChange={handleChange}
           value={searchTerm}
+          onKeyDown={handleKeyDown}
         />
         <span 
           className="search-icon" 
@@ -38,23 +52,19 @@ export const SearchBar = () => {
         </span>
       </div>
 
-      {suggestions.length > 0 && (
+      {suggestions.length > 0 && searchTerm!=='' && (
         <div className="suggestions-container">
           {suggestions.map((suggestion, index) => (
             
-              <Link
-                to={`/products/product/${suggestion.id}`}
+              <div
                 key={'suggestion-'+index}
                 className="suggestion"
-                onClick={() => {
-                  setCurrentCategory(suggestion.category);
-                  setSearchTerm('');
-                  setSuggestions([]);
-                }}
+                onClick={handleClick}
+                id={suggestion.id}
                 >
                   {suggestion.title}
                 
-              </Link>
+              </div>
            
             
           ))}

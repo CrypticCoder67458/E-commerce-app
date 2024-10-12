@@ -3,6 +3,7 @@
 .product-page{
     height: 100%;
     font-size: 18px;
+    background-color: white;
 }
 .product-header{
     display: flex;
@@ -312,18 +313,7 @@
     }
 }
 @media (max-width: 912px){
-    .product {
-        width: 180px; 
-        height: 280px; 
-        border-radius: 20px;
-        
-    }
-    
-    .product h3 {
-        margin:  10px;
-        font-size: 16px;
-    
-    }
+   
     
     .product img {
         width: 180px; 

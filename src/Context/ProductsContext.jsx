@@ -19,7 +19,7 @@ export const ProductsProvider = ({children}) => {
   async function fetchProducts() {
     setLoading(true);
     try {
-      const res = await fetch("https://fakestoreapi.in/api/products?limit=300");
+      const res = await fetch("https://fakestoreapi.in/api/products?limit=150");
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
       }

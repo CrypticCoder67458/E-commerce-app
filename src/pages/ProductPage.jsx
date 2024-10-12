@@ -11,11 +11,12 @@ import { ProductSlider } from "../Components/shared Components/ProductSlider";
 import{LoadingPage} from "../pages/LoadingPage";
 import { ProductsContext } from "../Context/ProductsContext";
 import { filterByCategory } from "../utils/FilterProduct";
+import{formatPrice} from "../utils/PriceFunctions";
 export function ProductPage() {  
     const { currentCategory, setCurrentCategory, products, loading } = useContext(ProductsContext);  
+    const [deliveryDate, setDeliveryDate] = useState('');  
     const { productId } = useParams();  
     const product = products.find(product => product.id === parseInt(productId, 10));  
-    const [deliveryDate, setDeliveryDate] = useState('');  
 
     useEffect(() => {  
         if (product && product.category !== currentCategory) {  
@@ -59,7 +60,7 @@ export function ProductPage() {
                             </div>  
                             <div className="product-delivery-details">  
                                 <div>  
-                                    <h1>${product.price.toFixed(2)}</h1> // Ensuring price is formatted correctly  
+                                    <h1>${formatPrice(product.price)}</h1>  
                                     <ul>  
                                         <li><b>Brand:</b> {product.brand || "N/A"}</li>  
                                         <li><b>Model:</b> {product.model || "N/A"}</li>  
