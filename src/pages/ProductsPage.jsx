@@ -13,7 +13,7 @@ export const ProductsPage = () => {
   const{shownProducts,currentCategory}=useContext(ProductsContext)
   
   return (
-    <div className='products-page'>
+    <div className='products-page oswald-title  '>
       <Navbar/>
       
       <div className='container' >

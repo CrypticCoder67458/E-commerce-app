@@ -27,11 +27,13 @@ export const SearchBar = () => {
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       navigate(`/products/product/${suggestions[0].id}`, { replace: true, state: { from: location.pathname } });
+      setSearchTerm('');
     }
   };
 
   const handleClick = (event) => {
     navigate(`/products/product/${event.target.id}`, { replace: true, state: { from: location.pathname } });
+    setSearchTerm('');
   };
   
 
@@ -53,12 +55,12 @@ export const SearchBar = () => {
       </div>
 
       {suggestions.length > 0 && searchTerm!=='' && (
-        <div className="suggestions-container">
+        <div className="suggestions-container ">
           {suggestions.map((suggestion, index) => (
             
               <div
                 key={'suggestion-'+index}
-                className="suggestion"
+                className="suggestion oswald-title-light"
                 onClick={handleClick}
                 id={suggestion.id}
                 >

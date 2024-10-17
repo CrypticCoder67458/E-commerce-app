@@ -2,6 +2,6 @@ import React from 'react'
 
 export const LoadingPage = () => {
   return (
-    <div>LoadingPage...</div>
+    <div className='oswald-title  '>LoadingPage...</div>
   )
 }

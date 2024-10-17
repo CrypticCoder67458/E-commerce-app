@@ -13,7 +13,8 @@ function HomePage() {
   
 
   return(
-    <div className='home page'>
+    <div className='home page oswald-title  
+'>
       <Navbar />
       <Hero	/>
       <div className='home-page-main-content'>

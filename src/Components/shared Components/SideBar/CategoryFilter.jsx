@@ -23,7 +23,7 @@ export const CategoryFilter = () => {
       {shouldShow && (
         <form className='filter-form '>
           {categories.map((category) => (
-            <label key={category}>
+            <label key={category} className='oswald-title-light'>
               <input
                 type='radio'
                 name='category'

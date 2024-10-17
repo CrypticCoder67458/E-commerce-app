@@ -19,12 +19,12 @@ export  function Navbar(){
     }
     return(
             
-            <div className="navbar">
+            <div className="navbar oswald-title  ">
                 <div className="navbar-main" >
                     <Link to={"/"} className="flex">
                         <img 
                         src={logo} className="logo" alt="logo"/>
-                        <h2>TechHaven</h2>
+                        <h2 >TechHaven</h2>
                     </Link>
                     <SearchBar/>
                     <Link to="/cart">

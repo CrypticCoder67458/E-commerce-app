@@ -3,6 +3,7 @@ import '../../Styles/styles.css'
 import '../../Styles/cart-page.css'
 import {CartContext} from '../../Context/CartContext'
 import { FaTrashAlt } from "react-icons/fa";
+import { formatPrice,calculateAfterDiscount } from '../../utils/PriceFunctions';
 export const CartProductItem = ({product,quantity,}) => {
     const{cartProducts,setCartProducts}=React.useContext(CartContext)
     React.useEffect(()=>setLocalQuantity(quantity),[cartProducts,quantity])
@@ -52,8 +53,13 @@ export const CartProductItem = ({product,quantity,}) => {
                     onClick={handlePlus}
                     >+</span>         
                   </div>
-                  <b>${Math.round((product.price * localQuantity) * 100) / 100}
-                  </b>
+                  <div className="normal-flex">
+                      {product.discount>0 && 
+                      <><p className="old-price">${formatPrice(product.price)}</p>
+                      <b>${formatPrice(calculateAfterDiscount(product))}</b></>}
+                      {!product.discount && <b>${formatPrice(product.price)}</b>}
+                      
+                  </div>  
 
                </div>
                 

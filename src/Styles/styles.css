@@ -5,6 +5,10 @@
     -webkit-scrollbar {
         display: none;
     }
+    font-family: "Oswald", sans-serif;  
+    font-optical-sizing: auto;  
+    font-weight: 700;  /* Bold weight */  
+    font-style: normal;  
 
     -ms-overflow-style: none; 
     scrollbar-width: none;
@@ -24,10 +28,21 @@ ul{
 
 body {
         background-color: rgb(255, 255, 240);
-
-    background: linear-gradient(to bottom, rgb(255, 255, 240), rgb(255, 255, 240)) fixed;
+        background: linear-gradient(to bottom, rgb(255, 255, 240), rgb(255, 255, 240)) fixed;
+        
 }
+.oswald-title {  
+    font-family: "Oswald", sans-serif;  
+    font-optical-sizing: auto;  
+    font-weight: 700;  /* Bold weight */  
+    font-style: normal;  
+  }
+.oswald-title-light{
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;  
+    font-weight: 400;  
 
+}  
 .flex{
     display: flex;
     align-items: center;
@@ -111,6 +126,10 @@ body {
 }
 
 
-
+.normal-flex{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
 
 

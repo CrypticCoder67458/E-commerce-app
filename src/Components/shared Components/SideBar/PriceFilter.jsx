@@ -28,7 +28,7 @@ export const PriceFilter = () => {
             </h3>
             {shouldShow ? 
                 <div>
-                    <b className='filter-price-text'>{`$${formatPrice(minPrice)}`} - {`$${formatPrice(maxPrice)}`}</b>
+                    <b className='filter-price-text oswald-title-light'>{`$${formatPrice(minPrice)}`} - {`$${formatPrice(maxPrice)}`}</b>
                     <br/>
                     <Box className='price-box'>
                         <Slider

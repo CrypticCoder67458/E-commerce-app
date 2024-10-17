@@ -2,7 +2,7 @@ import React from "react"
 import '../../Styles/styles.css'
 import '../../Styles/home-page.css'
 import{Link} from 'react-router-dom'
-import { formatPrice } from "../../utils/PriceFunctions"
+import { formatPrice,calculateAfterDiscount } from "../../utils/PriceFunctions"
 export function Product({product}) {
     const productHighlight = product.discount>0?"limited offer":product.popular?"bestseller":null;
     return (
@@ -23,7 +23,7 @@ export function Product({product}) {
                   <div  className="discount-price">
                     <p className="discount">-{product.discount}%</p>
                     <div className="price-container">
-                      <b className="new-price">${formatPrice(product.price-(product.price*(product.discount/100)))}</b>
+                      <b className="new-price">${formatPrice(calculateAfterDiscount(product))}</b>
                       <p className="old-price">${formatPrice(product.price)}</p>
 
                     </div>

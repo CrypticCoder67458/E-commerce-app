@@ -30,3 +30,6 @@ export function findLowestPrice(products) {
     }
     return lowestPrice;
 }
+export function calculateAfterDiscount(product) {
+    return product.price-(product.price*(product.discount/100))
+}

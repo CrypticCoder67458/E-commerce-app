@@ -11,7 +11,7 @@ import { ProductSlider } from "../Components/shared Components/ProductSlider";
 import{LoadingPage} from "../pages/LoadingPage";
 import { ProductsContext } from "../Context/ProductsContext";
 import { filterByCategory } from "../utils/FilterProduct";
-import{formatPrice} from "../utils/PriceFunctions";
+import{formatPrice,calculateAfterDiscount} from "../utils/PriceFunctions";
 export function ProductPage() {  
     const { currentCategory, setCurrentCategory, products, loading } = useContext(ProductsContext);  
     const [deliveryDate, setDeliveryDate] = useState('');  
@@ -43,8 +43,8 @@ export function ProductPage() {
             ) : product ? ( // Check if product exists  
                 <div className="product-page page">  
                     <Navbar />  
-                    <div className="product-details">  
-                        <div className="product-header">  
+                    <div className="product-details oswald-title  ">  
+                        <div className="return-home-links">  
                             <Link to="/">  
                                 <b><IoHomeOutline size={22} /></b>  
                             </Link>  
@@ -60,11 +60,18 @@ export function ProductPage() {
                             </div>  
                             <div className="product-delivery-details">  
                                 <div>  
-                                    <h1>${formatPrice(product.price)}</h1>  
-                                    <ul>  
-                                        <li><b>Brand:</b> {product.brand || "N/A"}</li>  
-                                        <li><b>Model:</b> {product.model || "N/A"}</li>  
-                                        <li><b>Color:</b> {product.color || "N/A"}</li>  
+                                    <div className="normal-flex">
+                                        <b>Price:</b>
+                                        {product.discount>0 && 
+                                        <><p className="old-price">${formatPrice(product.price)}</p>
+                                        <b>${formatPrice(calculateAfterDiscount(product))}</b></>}
+                                        {!product.discount && <b>${formatPrice(product.price)}</b>}
+                                        
+                                    </div>  
+                                    <ul >  
+                                        <li className="oswald-title-light"><b>Brand:</b> {product.brand || "N/A"}</li>  
+                                        <li className="oswald-title-light"><b>Model:</b> {product.model || "N/A"}</li>  
+                                        <li className="oswald-title-light"><b>Color:</b> {product.color || "N/A"}</li>  
                                     </ul>  
                                 </div>  
                                 <p><b>Delivery Date:</b> {deliveryDate}</p>  
@@ -80,9 +87,13 @@ export function ProductPage() {
                             </div>  
                         </div>  
                         <h2>About this Product:</h2>  
-                        <p>{product.description || "N/A"}</p>  
+                        <p className="oswald-title-light">{product.description || "N/A"}</p>  
                     </div>  
-                    <ProductSlider products={filterByCategory(products, product.category)} text='Products that may also interest you' />  
+                    <ProductSlider 
+                        className="oswald-title"
+                        products={filterByCategory(products, product.category).filter(p => p.id !== product.id)}   
+                        text='Products that may also interest you'   
+/>
                 </div>  
             ) : (  
                 <p>Product not found.</p> // User-friendly message if the product doesn't exist  

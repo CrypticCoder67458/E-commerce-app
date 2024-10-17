@@ -1,13 +1,14 @@
 import React from 'react'
 import '../../Styles/styles.css'
 import { CartContext } from '../../Context/CartContext'
+import { formatPrice,calculateAfterDiscount } from '../../utils/PriceFunctions';
 export const OrderSummary = () => {
     const {cartProducts}=React.useContext(CartContext)
     const[totalPrice,setTotalPrice]=React.useState(0)
     React.useEffect(()=>{getTotalPrice()},[cartProducts])
     function getTotalPrice(){
         let price=0
-        cartProducts.map(cartProduct=>price+=cartProduct.product.price*cartProduct.quantity)
+        cartProducts.map(cartProduct=>price+=calculateAfterDiscount(cartProduct.product)*cartProduct.quantity)
         setTotalPrice(price)
     }
   return (
@@ -16,7 +17,7 @@ export const OrderSummary = () => {
         <hr/>
         <div className='order-summary--prices' >
             <p>Price:</p>
-            <p className='order-summary--price'>${totalPrice}</p>
+            <p className='order-summary--price'>${formatPrice(totalPrice)}</p>
         </div>
         <div className='order-summary--prices' >
             <p>Delivery:</p>
@@ -29,7 +30,7 @@ export const OrderSummary = () => {
         <hr/>
         <div className='order-summary--prices'>
             <p>Subtotal:</p>
-            <p className='order-summary--price'>${totalPrice}</p>
+            <p className='order-summary--price'>${formatPrice(totalPrice)}</p>
         </div>
     </div>
   )

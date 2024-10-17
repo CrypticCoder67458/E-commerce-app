@@ -50,9 +50,9 @@ export const BrandFilter = () => {
                 {shouldShow ? <FaAngleUp size={20} /> : <FaAngleDown size={20} />}  
             </h3>  
             {shouldShow && brands.length > 0 ? (  
-                <form className='filter-form'>  
+                <form className='filter-form '>  
                     {brands.map((brand, index) => (  
-                        <label key={brand + '-' + index}>  
+                        <label key={brand + '-' + index} className='oswald-title-light'>  
                             <input   
                                 type="checkbox"   
                                 name={brand}   

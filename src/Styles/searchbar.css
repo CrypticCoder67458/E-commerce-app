@@ -44,6 +44,8 @@
     display: none;
 }
 .suggestion{
+    display: flex;
+    align-items: center;
     margin-top: 0;
     padding: 20px;
     border-bottom: 1px solid #ccc;

@@ -19,7 +19,7 @@ export function CartPage() {
       
   }
   return(
-    <div className='page '>
+    <div className='page oswald-title   '>
       <Navbar />
       <h1 className='cart-title'>Your Cart:({totalQuantity} items)</h1>
       <>
